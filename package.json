@@ -1,13 +1,31 @@
 {
-  "name": "lab-node-create-an-application",
+  "name": "lab-node-working-with-apis",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "description": "A set of example applications for that rely on the Auth0 VSCode Extension.",
+  "license": "MIT",
+  "author": "Auth0",
+  "bugs": {
+    "url": "https://github.com/auth0-training/labs-node-working-with-apis/issues"
   },
-  "author": "",
-  "license": "ISC",
+  "homepage": "https://github.com/auth0-training/labs-node-working-with-apis#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/auth0-training/labs-node-working-with-apis.git"
+  },
+  "scripts": {
+    "init": "concurrently \"npm:init:dependencies\"",
+    "init:dependencies": "concurrently \"npm:api:dependencies\"",
+    "api:start": "npm start --prefix ./src/api",
+    "api:dependencies": "npm install --prefix ./src/api"
+  },
+  "keywords": [
+    "auth0",
+    "oauth2",
+    "authorization",
+    "samples",
+    "tools",
+    "labs"
+  ],
   "dependencies": {
     "concurrently": "^6.2.1"
   }

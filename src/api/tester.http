@@ -1,0 +1,32 @@
+// be sure to include scheme in urls (https://, http://)
+@api_url = FILL_ME_IN
+@issuer_base_url = FILL_ME_IN
+@issuer_client_id = FILL_ME_IN
+@issuer_client_secret = FILL_ME_IN
+
+# @name client_credentials
+POST {{issuer_base_url}}/oauth/token HTTP/1.1
+Content-Type: application/json
+
+{
+  "grant_type":"client_credentials",
+  "audience": "https://expenses-api",
+  "client_id" : "{{issuer_client_id}}",
+  "client_secret": "{{issuer_client_secret}}"
+}
+
+###
+@access_token = {{client_credentials.response.body.access_token}}
+
+### @name get_default_route
+GET {{api_url}}/ HTTP/1.1
+
+### @name get_total_route
+GET {{api_url}}/total HTTP/1.1
+
+### @name get_report_route_unsecured
+GET {{api_url}}/reports HTTP/1.1
+
+### @name get_report_route_secured
+GET {{api_url}}/reports HTTP/1.1
+Authorization: Bearer {{access_token}}
