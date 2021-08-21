@@ -14,9 +14,11 @@
   },
   "scripts": {
     "init": "concurrently \"npm:init:dependencies\"",
-    "init:dependencies": "concurrently \"npm:api:dependencies\"",
+    "init:dependencies": "concurrently \"npm:api:dependencies\" \"npm:web-app:dependencies\"",
     "api:start": "npm start --prefix ./src/api",
-    "api:dependencies": "npm install --prefix ./src/api"
+    "api:dependencies": "npm install --prefix ./src/api",
+    "web-app:start": "npm start --prefix ./src/web-app",
+    "web-app:dependencies": "npm install --prefix ./src/web-app"
   },
   "keywords": [
     "auth0",

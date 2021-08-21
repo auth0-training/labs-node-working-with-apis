@@ -14,13 +14,24 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "api:start"],
       "port": 9005
+    },{
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Web App",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "web-app:start"],
+      "port": 9007
     }
   ],
   "compounds": [
     {
       "name": "Launch All",
       "configurations": [ 
-        "Launch API" 
+        "Launch API",
+        "Launch Web App"
       ]
     }
   ]
