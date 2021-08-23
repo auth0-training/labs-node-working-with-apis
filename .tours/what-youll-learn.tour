@@ -1,0 +1,19 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Working with APIs",
+  "steps": [
+    {
+      "title": "What You'll Learn",
+      "description": "## What you'll learn\n\nSo far you've:\n\n* Created and toured an Auth0 tenant\n* Spun up a regular web application\n* Added secure authentication to your application using Auth0\n* Explored and enabled social connections for your application\n* Created edited and manipulated user profiles\n* Customized the New and Classic login experiences\n\n**Here's what you'll do now:**  \n\n1. Create an API in your Tenant\n1. Deploy a test API into the lab environment\n1. Obtain a test Access Token\n1. Call the test API using the Access Token"
+    },
+    {
+      "title": "Configure Your API in Auth0",
+      "description": "## 1. Configure your API in Auth0\n\n1. In the Auth0 Dashboard, go to the [APIs page](https://manage.auth0.com/#/apis), and click the **Create API** button.  \n\n1. Name it **Expenses API**. Since this API will handle the expenses for our application, we recommend ‘expenses-api’.  \n\n1. For the **Identifier** field, copy and paste <https://expenses-api> and click **Create**.  \n\n4. Click the **Permissions** tab and add a new permission called read:reports with a suitable description. This custom permission is the one you will use to determine whether the client is authorized to retrieve expenses.  \n\nExcellent. Your API is registered with Auth0."
+    },
+    {
+      "title": "Check the 'src' Folder",
+      "description": "## Check the 'src' Folder\nIf you examine the Explorer pane you'll notice that we've added a new folder in addition to the web-app folder from previous labs. \n\nUp until this point, the expenses that your web-application displays to users have been hard-coded into the application. We're going to change that.\n\nIn the src folder, you'll now see an 'api' folder containing an entirely different application -- Our new API! \n\nThe first step will be wiring these two applications together - let's get started!"
+    }
+  ],
+  "ref": "main"
+}
