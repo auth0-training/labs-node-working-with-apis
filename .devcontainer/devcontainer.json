@@ -25,7 +25,7 @@
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [
 		5000, //API
-    7000, //Web App
+    	7000, //Web App
 	],
 
 	// Use 'postCreateCommand' to run commands after the container is created.

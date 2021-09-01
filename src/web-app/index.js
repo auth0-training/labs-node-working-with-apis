@@ -17,9 +17,10 @@ const logger = require("morgan");
 const path = require("path");
 const { createServer } = require("http");
 const { auth, requiresAuth } = require("express-openid-connect");
+
 const app = express();
 
-app.use(checkUrl()); 
+app.use(checkUrl()); // Used to normalize URL in Vercel
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
 app.use(logger("combined"));
