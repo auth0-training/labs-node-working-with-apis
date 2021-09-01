@@ -34,7 +34,7 @@
     },
     {
       "title": "API Secured!",
-      "description": "## API Secured!\nNice work! \n\nWe’ve now set the Expenses API up with express middleware that will require an authorization token before letting anyone view expenses data.\n\nLet's try it out!"
+      "description": "## API Secured!\nNice work! \n\nWe’ve now set the Expenses API up with express middleware that will require an authorization token before letting anyone view expenses data.\n\nLet's try it out in the next step!"
     },
     {
       "title": "Call the Secured API Without an Access Token",

@@ -8,7 +8,7 @@
     },
     {
       "title": "Check the 'src' Folder",
-      "description": "## Check the 'src' Folder\nIf you examine the Explorer pane you'll notice that we've added a new folder in addition to the web-app folder from previous labs. \n\nUp until this point, the expenses that your web-application displays to users have been hard-coded into the application. We're going to change that.\n\nIn the src folder, you'll now see an 'api' folder containing an entirely different application -- Our new API! \n\nThe first step will be wiring these two applications together. Let's get started!"
+      "description": "## Check the 'src' Folder\nIf you [examine the Explorer pane](command:workbench.explorer.fileView.focus) you'll notice that we've added a new folder in addition to the web-app folder from previous labs. \n\nUp until this point, the expenses that your web-application displays to users have been hard-coded into the application. We're going to change that.\n\nIn the src folder, you'll now see an 'api' folder containing an entirely different application -- Our new API! \n\nThe first step will be wiring these two applications together. Let's get started!"
     },
     {
       "file": "src/web-app/index.js",
