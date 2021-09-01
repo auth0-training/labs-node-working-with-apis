@@ -1,12 +1,3 @@
-const express = require("express");
-const session = require("express-session");
-const createError = require("http-errors");
-const cookieParser = require("cookie-parser");
-const logger = require("morgan");
-const path = require("path");
-const { createServer } = require("http");
-const { auth, requiresAuth } = require("express-openid-connect");
-
 const {
   checkUrl,
   APP_URL, // Public URL for this app
@@ -18,9 +9,17 @@ const {
   PORT,
 } = require("./env-config");
 
+const express = require("express");
+const session = require("express-session");
+const createError = require("http-errors");
+const cookieParser = require("cookie-parser");
+const logger = require("morgan");
+const path = require("path");
+const { createServer } = require("http");
+const { auth, requiresAuth } = require("express-openid-connect");
 const app = express();
 
-app.use(checkUrl()); // Used to normalize URL in Vercel
+app.use(checkUrl()); 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
 app.use(logger("combined"));

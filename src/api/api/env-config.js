@@ -1,3 +1,4 @@
+require('dotenv').config();
 const {
   ISSUER_BASE_URL,
   ALLOWED_AUDIENCES,

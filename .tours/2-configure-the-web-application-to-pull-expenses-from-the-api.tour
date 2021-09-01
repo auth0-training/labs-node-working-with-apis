@@ -12,15 +12,15 @@
     },
     {
       "file": "src/web-app/index.js",
-      "description": "## Add the Axios Library to the Expenses Web Application\nNow that you're familiar with the Expenses API, our first task is to require the Axios library in our web application. This library will enable our asynchronous calls to the Expenses API. Start by inserting the following code into the Expenses Web Application to require Axios:\n\n``` jsx\n\nconst axios = require(\"axios\").default;\n```\n\\\n&nbsp;\n\nWith that done, it's time to begin modifying our routes to use Axios to call our API, rather than simply displaying data from the Application file. ",
-      "line": 10,
+      "description": "## Add the Axios Library to the Expenses Web Application\nNow that you're familiar with the Expenses API, our first task is to require the Axios library in our web application. This library will enable our asynchronous calls to the Expenses API. Start by inserting the following code into the Expenses Web Application to require Axios:\n\n``` jsx\nconst axios = require(\"axios\").default;\n\n```\n\\\n&nbsp;\n\nWith that done, it's time to begin modifying our routes to use Axios to call our API, rather than simply displaying data from the Application file. ",
+      "line": 27,
       "selection": {
         "start": {
-          "line": 8,
+          "line": 21,
           "character": 66
         },
         "end": {
-          "line": 8,
+          "line": 21,
           "character": 66
         }
       }
@@ -28,14 +28,14 @@
     {
       "file": "src/web-app/index.js",
       "description": "## First, Modify the Default Route\nThe default route (\"/\") is the view that anonymous users will see by default when they first encounter our Expenses Web Application. \n\nRight now, the route is referencing values that are hard-coded into the web application. Now, we'll adjust this route to retrieve data from our Expenses API using Axios. We'll also add some error handling. \n\nExamine the code below, and compare it to the code that is already in the application. When you've identified the changes, click Insert Code to replace the old code with the block below.\n\n``` jsx\napp.get(\"/\", async (req, res, next) => {\n    try {\n       const summary = await axios.get(`${API_URL}/total`);\n       res.render(\"home\", {\n        user: req.oidc && req.oidc.user,\n        total: summary.data.total,\n        count: summary.data.count,\n       });\n    } catch (err) {\n       next(err);\n    }\n});\n```\n, then continue to modify the expenses route.",
-      "line": 80,
+      "line": 90,
       "selection": {
         "start": {
-          "line": 63,
+          "line": 62,
           "character": 1
         },
         "end": {
-          "line": 69,
+          "line": 68,
           "character": 4
         }
       }
@@ -43,14 +43,14 @@
     {
       "file": "src/web-app/index.js",
       "description": "## Modify the Expenses Route\n\nNow we'll modify the \"/expenses\" route in a similar way. Compare the block below to what's currently in the code. As before, we're adding error handling, and defining the path to the relevant data in our Expenses API.\n\n``` jsx\napp.get(\"/expenses\", requiresAuth(), async (req, res, next) => {\n    try {\n        const expenses = await axios.get(`${API_URL}/reports`);\n        res.render(\"expenses\", {\n           user: req.oidc && req.oidc.user,\n           expenses: expenses.data,\n        });\n    } catch (err) {\n        next(err);\n    }\n});\n```\n, then continue to the next step.",
-      "line": 100,
+      "line": 109,
       "selection": {
         "start": {
-          "line": 85,
+          "line": 84,
           "character": 1
         },
         "end": {
-          "line": 90,
+          "line": 89,
           "character": 4
         }
       }
@@ -58,21 +58,21 @@
     {
       "file": "src/web-app/index.js",
       "description": "## Remove the Hard-Coded Expenses Data from the Expenses Web Application\nNow that we've successfully wired our Expenses Web Application to our Expenses API, there's no need to hang on to the hard-coded expense data. Let's remove this data from our Web Application to keep things clean.\n\nClick the Insert Code button below to remove the data automatically.\n\n``` jsx \n // This comment will replace the hard-coded expenses data.\n```\n -- continue when you're ready!",
-      "line": 61,
+      "line": 60,
       "selection": {
         "start": {
-          "line": 50,
+          "line": 49,
           "character": 1
         },
         "end": {
-          "line": 61,
+          "line": 60,
           "character": 3
         }
       }
     },
     {
       "title": "Run the Application and API",
-      "description": "## Run the Application and API\nNow that we've connected the Expenses Web Application to our Expenses API, let's run them both and take a look. \n\n1. #### Run the API\n    1. Click [here](command:workbench.action.files.saveFiles) to save all this progress.\n    1. Click [here](command:workbench.action.terminal.new) to open your vscode terminal. (You may already have one open, that's ok)\n    1. Click [here](command:auth0.lab.openEndpointByName?[\"Lab: API\"]) to launch and view the Expenses API in your web browser.\n\n1. #### Visit the API /reports rout in your browser.\nWhile we've successfully wired our API up, it isn't yet secure. You can see this directly by appending the URL for your Expenses API with /reports. \nThe expense data is available publicly, without an Access Token. \n\nIn the next steps, you'll change the API to require a properly-scoped Access Token to view.\nTo do this, we’ll make use of an Express authentication middleware used to protect OAuth2 resources, which validates access tokens.  \n\nLet's secure this API!"
+      "description": "## Run the Application and API\nNow that we've connected the Expenses Web Application to our Expenses API, let's run them both and take a look. \n\n1. #### Run the API\n    1. Click [here](command:workbench.action.files.saveFiles) to save all this progress.\n    1. Click [here](command:workbench.action.terminal.new) to open your vscode terminal. (You may already have one open, that's ok)\n    1. Click [here](command:workbench.action.debug.start) to build and deploy the API.\n    1. Click [here](command:auth0.lab.openEndpointByName?[\"Lab: API\"]) to launch and view the Expenses API in your web browser.\n\n1. #### Visit the API /reports route in your browser.\nWhile we've successfully wired our API up, it isn't yet secure. You can see this directly by appending the URL for your Expenses API with /reports. \nThe expense data is available publicly, without an Access Token. \n\nIn the next steps, you'll change the API to require a properly-scoped Access Token to view.\nTo do this, we’ll make use of an Express authentication middleware used to protect OAuth2 resources, which validates access tokens.  \n\nLet's secure this API!"
     }
   ],
   "ref": "core-codetour-steps",
