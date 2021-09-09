@@ -8,7 +8,14 @@
   },
 
   // Add the IDs of extensions you want installed when the container is created in the array below.
-  "extensions": ["dbaeumer.vscode-eslint", "humao.rest-client"],
+  "extensions": [
+		"dbaeumer.vscode-eslint",
+		"EditorConfig.EditorConfig",
+		"hjb2012.vscode-es6-string-html",
+		"vsls-contrib.codetour",
+		"mikestead.dotenv",
+		"auth0.vscode-labs",
+		],
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   "forwardPorts": [],
