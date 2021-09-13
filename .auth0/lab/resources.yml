@@ -3,7 +3,7 @@ clients: # Add other client settings https://auth0.com/docs/api/management/v2#!/
     name: "Lab: Web App"
     app_type: "regular_web"
     callbacks:
-      - "http://localhost:7000"
+      - "http://localhost:7000/callback"
       - "https://##CLOUDENV_ENVIRONMENT_ID##-7000.apps.codespaces.githubusercontent.com"
       - "https://7000-0-##INSTANCE_ID##.auth0-labs.appsembler.com"
     allowed_logout_urls:

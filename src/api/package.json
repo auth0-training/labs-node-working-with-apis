@@ -5,14 +5,6 @@
   "license": "MIT",
   "author": "Auth0",
   "main": "api/index.js",
-  "bugs": {
-    "url": "https://github.com/auth0/auth0-product-education-labs/issues"
-  },
-  "homepage": "https://github.com/auth0/auth0-product-education-labs#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/auth0/auth0-product-education-labs.git"
-  },
   "scripts": {
     "start": "PORT=$npm_package_config_expense_api_port ALLOWED_AUDIENCES=$npm_package_config_expense_api_audience node api/index"
   },
@@ -31,7 +23,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "express-oauth2-bearer": "^0.4.0",
+    "express-oauth2-bearer": "^0.4.1",
     "dotenv": "10.0.0"
   }
 }
