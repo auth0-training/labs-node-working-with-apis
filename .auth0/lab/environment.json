@@ -2,7 +2,8 @@
   "name": "Lab Node Working with APIs",
   "version":"1.0.0",
   "resources": "resources.yml",
-  "postConfigureTour": ".auth0/lab/guides/main.tour",
+  "unauthenticatedTour": ".auth0/lab/guides/signin.tour",
+  "postConfigureTour": ".auth0/lab/guides/1-create-the-expenses-api-in-your-labs-tenant.tour",
   "clients": [
     {
       "name":"Lab: Web App",
