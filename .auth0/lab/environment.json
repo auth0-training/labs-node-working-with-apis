@@ -3,7 +3,7 @@
   "version":"1.0.0",
   "resources": "resources.yml",
   "unauthenticatedTour": ".auth0/lab/guides/signin.tour",
-  "postConfigureTour": ".auth0/lab/guides/1-create-the-expenses-api-in-your-labs-tenant.tour",
+  "postConfigureTour": ".auth0/lab/guides/create-the-expenses-api-in-your-labs-tenant.tour", 
   "clients": [
     {
       "name":"Lab: Web App",
