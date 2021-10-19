@@ -6,6 +6,14 @@
   "license": "MIT",
   "author": "Auth0",
   "main": "index.js",
+  "bugs": {
+    "url": "https://github.com/auth0-training/labs-node-working-with-apis/issues"
+  },
+  "homepage": "https://github.com/auth0-training/labs-node-working-with-apis#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/auth0-training/labs-node-working-with-apis.git"
+  },
   "scripts": {
     "start": "PORT=$npm_package_config_port SESSION_SECRET=$npm_package_config_session_secret node index"
   },
@@ -15,7 +23,6 @@
   },
   "keywords": [
     "auth0",
-    "vercel",
     "openid",
     "oidc",
     "auth",

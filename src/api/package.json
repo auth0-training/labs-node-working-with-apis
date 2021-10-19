@@ -5,6 +5,14 @@
   "license": "MIT",
   "author": "Auth0",
   "main": "api/index.js",
+  "bugs": {
+    "url": "https://github.com/auth0-training/labs-node-working-with-apis/issues"
+  },
+  "homepage": "https://github.com/auth0-training/labs-node-working-with-apis#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/auth0-training/labs-node-working-with-apis.git"
+  },
   "scripts": {
     "start": "PORT=$npm_package_config_expense_api_port ALLOWED_AUDIENCES=$npm_package_config_expense_api_audience node api/index"
   },
@@ -14,7 +22,6 @@
   },
   "keywords": [
     "auth0",
-    "vercel",
     "oauth2",
     "samples",
     "tools",
