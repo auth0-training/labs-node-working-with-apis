@@ -1,7 +1,7 @@
-require('dotenv').config();
+require("dotenv").config();
 const {
   ISSUER_BASE_URL,
-  ALLOWED_AUDIENCES,
+  AUDIENCE,
   VERCEL_URL,
   VERCEL_GIT_COMMIT_REF,
   VERCEL_GITHUB_REPO,
@@ -33,13 +33,13 @@ console.log("\n----------------------------------");
 console.log("Envronment Settings:");
 console.log(`APP_URL: ${appUrl}`);
 console.log(`ISSUER_BASE_URL: ${ISSUER_BASE_URL}`);
-console.log(`ALLOWED_AUDIENCES: ${ALLOWED_AUDIENCES}`);
+console.log(`AUDIENCE: ${AUDIENCE}`);
 console.log("----------------------------------\n");
 
 module.exports = {
   checkUrl,
   APP_URL: appUrl,
   ISSUER_BASE_URL: removeTrailingSlashFromUrl(ISSUER_BASE_URL),
-  ALLOWED_AUDIENCES: ALLOWED_AUDIENCES,
+  AUDIENCE: AUDIENCE,
   PORT: PORT,
 };

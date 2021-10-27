@@ -1,12 +1,12 @@
 {
   "name": "Lab Node Working with APIs",
-  "version":"1.0.0",
+  "version": "1.0.0",
   "resources": "resources.yml",
   "unauthenticatedTour": ".auth0/lab/guides/signin.tour",
-  "postConfigureTour": ".auth0/lab/guides/create-the-expenses-api-in-your-labs-tenant.tour", 
+  "postConfigureTour": ".auth0/lab/guides/create-the-expenses-api-in-your-labs-tenant.tour",
   "clients": [
     {
-      "name":"Lab: Web App",
+      "name": "Lab: Web App",
       "directory": "src/web-app",
       "env": {
         "API_URL": "Lab: API",
@@ -20,11 +20,11 @@
   ],
   "resourceServers": [
     {
-      "name":"Lab: API",
+      "name": "Lab: API",
       "directory": "src/api",
       "env": {
         "ISSUER_BASE_URL": "$tenant_base_url",
-        "ALLOWED_AUDIENCES": "$identifier",
+        "AUDIENCE": "$identifier",
         "PORT": 5000
       }
     }

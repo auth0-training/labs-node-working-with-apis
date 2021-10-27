@@ -19,7 +19,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 - cors (2.8.5) [MIT]
 - debug (4.2.0) [MIT]
 - express (4.17.1) [MIT]
-- express-oauth2-bearer (0.4.1) [MIT]
+- express-oauth2-jwt-bearer (0.4.1) [MIT]
 - express-openid-connect (2.2.0) [MIT]
 - express-session (1.17.1) [MIT]
 - http-errors (1.8.0) [MIT]
@@ -246,7 +246,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 --------------------------------------------------------------------------------
-express-oauth2-bearer (0.4.1)
+express-oauth2-jwt-bearer (0.4.1)
 --------------------------------------------------------------------------------
 
 * Declared Licenses *

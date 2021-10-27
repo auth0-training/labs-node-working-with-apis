@@ -14,7 +14,7 @@
     "url": "git+https://github.com/auth0-training/labs-node-working-with-apis.git"
   },
   "scripts": {
-    "start": "PORT=$npm_package_config_expense_api_port ALLOWED_AUDIENCES=$npm_package_config_expense_api_audience node api/index"
+    "start": "PORT=$npm_package_config_expense_api_port AUDIENCE=$npm_package_config_expense_api_audience node api/index"
   },
   "config": {
     "expense_api_port": 5000,
@@ -30,7 +30,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "express-oauth2-bearer": "^0.4.1",
+    "express-oauth2-jwt-bearer": "^1.0.1",
     "dotenv": "10.0.0"
   }
 }
