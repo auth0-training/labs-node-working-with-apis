@@ -1,10 +1,10 @@
-require('dotenv').config();
+require("dotenv").config();
 const {
   ISSUER_BASE_URL,
   API_URL,
   CLIENT_ID,
   CLIENT_SECRET,
-  SESSION_SECRET = "e6de1374433dde92a5bae567b56b01de32ad0d4f0115b7675f5b985720210f4c",
+  SESSION_SECRET = "a long, randomly-generated string stored in env",
   VERCEL_URL,
   VERCEL_GIT_COMMIT_REF,
   VERCEL_GITHUB_REPO,
