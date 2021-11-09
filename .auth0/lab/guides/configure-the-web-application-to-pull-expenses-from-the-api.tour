@@ -6,13 +6,13 @@
       "file": "README.md",
       "line": 1,
       "title": "What You'll Learn",
-      "description": "## You just:\n1. Registered the Expenses API in your Tenant.\n\n## Now you will:\n1. Deploy a test API into the lab environment.\n1. Obtain a test Access Token.\n1. Call the test API using the Access Token."
+      "description": "## You just:\n1. Registered the Expenses API in your Tenant.\n\n## Now you will:\n1. Deploy a test API into the lab environment.\n1. Modify the Web application to call the API.\n1. Obtain a test Access Token.\n1. Call the test API using the Access Token."
     },
     {
       "file": "README.md",
       "line": 1,
       "title": "Check the 'src' Folder",
-      "description": "## Check the 'src' Folder\nIf you [examine the Explorer pane](command:workbench.explorer.fileView.focus) you'll notice that we've added a new folder in addition to the web-app folder from previous labs. \n\nUp until this point, the expenses that your web-application displays to users have been hard-coded into the application. We're going to change that.\n\nIn the src folder, you'll now see an 'api' folder containing an entirely different application -- Our new API! \n\nThe first step will be wiring these two applications together. Let's get started!"
+      "description": "## Check the 'src' Folder\nIf you [examine the Explorer pane](command:workbench.explorer.fileView.focus) you'll notice that we've added a new folder in addition to the web-app folder from previous labs. \n\n*You can navigate to the explorer pane, Auth0 plugin and other areas in VS Code using the Activity bar. Here's a quick intro to the user interface if you need it: [VS Code UI](https://code.visualstudio.com/docs/getstarted/userinterface).*\n\nUp until this point, the expenses that your web-application displays to users have been hard-coded into the application. We're going to change that.\n\nIn the src folder, you'll now see an 'api' folder containing an entirely different application -- Our new API! \n\nThe first step will be wiring these two applications together. Let's get started!"
     },
     {
       "file": "src/web-app/index.js",
@@ -61,7 +61,7 @@
     },
     {
       "file": "src/web-app/index.js",
-      "description": "## Remove the Hard-Coded Expenses Data from the Expenses Web Application\nNow that we've successfully wired our Expenses Web Application to our Expenses API, there's no need to hang on to the hard-coded expense data. Let's remove this data from our Web Application to keep things clean.\n\nClick the Insert Code button below to remove the data automatically.\n\n``` jsx \n // This comment will replace the hard-coded expenses data.\n```\n -- continue when you're ready!",
+      "description": "## Remove the Hard-Coded Expenses Data from the Expenses Web Application\nNow that we've successfully wired our Expenses Web Application to our Expenses API, there's no need to hang on to the hard-coded expense data within the web app. Let's remove this data from our Web Application to keep things clean.\n\nClick the Insert Code button below to remove the data automatically.\n\n``` jsx \n // This comment will replace the hard-coded expenses data.\n```\n -- continue when you're ready!",
       "line": 61,
       "selection": {
         "start": {
