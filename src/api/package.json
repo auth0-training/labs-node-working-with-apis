@@ -17,7 +17,7 @@
     "start": "PORT=$npm_package_config_expense_api_port AUDIENCE=$npm_package_config_expense_api_audience node api/index"
   },
   "config": {
-    "expense_api_port": 5000,
+    "expense_api_port": 35500,
     "expense_api_audience": "https://expenses-api"
   },
   "keywords": [

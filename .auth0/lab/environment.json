@@ -14,7 +14,7 @@
         "CLIENT_ID": "$client_id",
         "CLIENT_SECRET": "$client_secret",
         "SESSION_SECRET": "a long, randomly-generated string stored in env",
-        "PORT": 7000
+        "PORT": 37500
       }
     }
   ],
@@ -25,7 +25,7 @@
       "env": {
         "ISSUER_BASE_URL": "$tenant_base_url",
         "AUDIENCE": "$identifier",
-        "PORT": 5000
+        "PORT": 35500
       }
     }
   ]

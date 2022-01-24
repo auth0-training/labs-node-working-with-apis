@@ -12,6 +12,6 @@ This version of the regular web app is the starting place used in A0FUN-M06-L01 
 ISSUER_BASE_URL=https://your-tenant.region.auth0.com \
 CLIENT_ID=your-app-client-id  \
 CLIENT_SECRET=your-app-client-secret \
-API_URL=http://localhost:5000 \
+API_URL=http://localhost:35500 \
 npm start
 ```
