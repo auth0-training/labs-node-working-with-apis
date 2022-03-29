@@ -1,6 +1,6 @@
 {
   "name": "lab-node-working-with-apis",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A set of example applications for that rely on the Auth0 VSCode Extension.",
   "license": "MIT",
   "author": "Auth0",
@@ -29,8 +29,8 @@
     "labs"
   ],
   "dependencies": {
-    "concurrently": "^6.3.0",
-    "eslint": "^8.0.1",
-    "prettier": "^2.4.1"
+    "concurrently": "^7.0.0",
+    "eslint": "^8.9.0",
+    "prettier": "^2.5.1"
   }
 }
