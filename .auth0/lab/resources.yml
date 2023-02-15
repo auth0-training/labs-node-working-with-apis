@@ -6,3 +6,6 @@ clients: # Add other client settings https://auth0.com/docs/api/management/v2#!/
       - "http://localhost:37500/callback"
     allowed_logout_urls:
       - "http://localhost:37500"
+    jwt_configuration: 
+      alg: "RS256"
+      
