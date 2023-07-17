@@ -3,13 +3,13 @@
   "title": "2: Configure the Web Application to Pull Expenses from the API",
   "steps": [
     {
-      "file": "README.md",
+      "file": "",
       "line": 1,
       "title": "What You'll Learn",
       "description": "## You just:\n1. Registered the Expenses API in your Tenant.\n\n## Now you will:\n1. Deploy a test API into the lab environment.\n1. Modify the Web application to call the API.\n1. Obtain a test Access Token.\n1. Call the test API using the Access Token."
     },
     {
-      "file": "README.md",
+      "file": "",
       "line": 1,
       "title": "Check the 'src' Folder",
       "description": "## Check the 'src' Folder\nIf you [examine the Explorer pane](command:workbench.explorer.fileView.focus) you'll notice that we've added a new folder in addition to the web-app folder from previous labs. \n\n*You can navigate to the explorer pane, Auth0 plugin and other areas in VS Code using the Activity bar. Here's a quick intro to the user interface if you need it: [VS Code UI](https://code.visualstudio.com/docs/getstarted/userinterface).*\n\nUp until this point, the expenses that your web-application displays to users have been hard-coded into the application. We're going to change that.\n\nIn the src folder, you'll now see an 'api' folder containing an entirely different application -- Our new API! \n\nThe first step will be wiring these two applications together. Let's get started!"
@@ -75,7 +75,7 @@
       }
     },
     {
-      "file": "README.md",
+      "file": "",
       "line": 1,
       "title": "Run the Application and API",
       "description": "## Run the Web App and API\nNow that we've connected the Expenses Web Application to our Expenses API, let's run them both and take a look. \n\n1. #### Run the API\n    1. #### Click [here](command:workbench.action.files.saveFiles) to save all this progress.\n    1. #### Click [here](command:workbench.action.terminal.new) to open your vscode terminal. (You may already have one open, that's ok)\n    1. #### Click [here](command:workbench.action.debug.start) to build and deploy the Web App and API.\n    1. #### Click [here](command:auth0.lab.openEndpointByName?[\"Lab: API, Lab: Web App\"]) to launch and view the Web App and API in your web browser.\n\n1. #### Visit the API /reports route in your browser.\nWhile we've successfully wired our API up, it isn't yet secure. You can see this directly by appending the URL for your Expenses API with /reports. \nThe expense data is available publicly, without an Access Token. \n\nIn the next steps, you'll change the API to require a properly-scoped Access Token to view.\nTo do this, we’ll make use of an Express authentication middleware used to protect OAuth2 resources, which validates access tokens.  \n\nLet's secure this API!"
