@@ -20,7 +20,7 @@
     {
       "file": "src/api/api/index.js",
       "description": "## Configure the API to use the Authentication Middleware\nNow, let's configure the API to use the middleware for all requests. \n\nHere, we'll add the following code:\n\n``` jsx\n// 👆 public routes above 👆\napp.use(auth());\n// 👇 private routes below 👇\n```\n\nNote the placement of this middleware between the “/total” and “/reports” endpoints. This is significant. \n\nJust like with web applications, some API endpoints are public. Endpoints above the middleware are open to the public while endpoints below require a valid oauth2 Access Token.  ",
-      "line": 56,
+      "line": 50,
       "selection": {
         "start": {
           "line": 50,
@@ -28,7 +28,7 @@
         },
         "end": {
           "line": 50,
-          "character": 29
+          "character": 50
         }
       }
     },
