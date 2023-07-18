@@ -62,14 +62,14 @@
     {
       "file": "src/web-app/index.js",
       "description": "## Remove the Hard-Coded Expenses Data from the Expenses Web Application\nNow that we've successfully wired our Expenses Web Application to our Expenses API, there's no need to hang on to the hard-coded expense data within the web app. Let's remove this data from our Web Application to keep things clean.\n\nClick the Insert Code button below to remove the data automatically.\n\n``` jsx \n // This comment will replace the hard-coded expenses data.\n```\n -- continue when you're ready!",
-      "line": 61,
+      "line": 60,
       "selection": {
         "start": {
-          "line": 52,
+          "line": 51,
           "character": 1
         },
         "end": {
-          "line": 61,
+          "line": 60,
           "character": 30
         }
       }
