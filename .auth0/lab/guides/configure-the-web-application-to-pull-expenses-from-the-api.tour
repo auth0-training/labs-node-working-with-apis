@@ -32,7 +32,7 @@
     {
       "file": "src/web-app/index.js",
       "description": "## First, Modify the Default Route\nThe default route (\"/\") is the view that anonymous users will see by default when they first encounter our Expenses Web Application. \n\nRight now, the route is referencing values that are hard-coded into the web application. Now, we'll adjust this route to retrieve data from our Expenses API using Axios. We'll also add some error handling. \n\nExamine the code below, and compare it to the code that is already in the application. When you've identified the changes, click Insert Code to replace the old code with the block below.\n\n``` jsx\napp.get(\"/\", async (req, res, next) => {\n    try {\n       const summary = await axios.get(`${API_URL}/total`);\n       res.render(\"home\", {\n        user: req.oidc && req.oidc.user,\n        total: summary.data.total,\n        count: summary.data.count,\n       });\n    } catch (err) {\n       next(err);\n    }\n});\n```\n, then continue to modify the expenses route.",
-      "line": 71,
+      "line": 82,
       "selection": {
         "start": {
           "line": 65,
@@ -47,7 +47,7 @@
     {
       "file": "src/web-app/index.js",
       "description": "## Modify the Expenses Route\n\nNow we'll modify the \"/expenses\" route in a similar way. Compare the block below to what's currently in the code. As before, we're adding error handling, and defining the path to the relevant data in our Expenses API.\n\n``` jsx\napp.get(\"/expenses\", requiresAuth(), async (req, res, next) => {\n    try {\n        const expenses = await axios.get(`${API_URL}/reports`);\n        res.render(\"expenses\", {\n           user: req.oidc && req.oidc.user,\n           expenses: expenses.data,\n        });\n    } catch (err) {\n        next(err);\n    }\n});\n```\n, then continue to the next step.",
-      "line": 92,
+      "line": 102,
       "selection": {
         "start": {
           "line": 87,

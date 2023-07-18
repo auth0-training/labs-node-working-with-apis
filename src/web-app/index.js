@@ -30,9 +30,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(
-  authorizationParams: {
-      response_type: 'code',
-  },
   session({
     secret: SESSION_SECRET,
     resave: false,
@@ -42,6 +39,9 @@ app.use(
 
 app.use(
   auth({
+    authorizationParams: {
+      response_type: 'code',
+  },
     secret: SESSION_SECRET,
     authRequired: false,
     auth0Logout: true,
