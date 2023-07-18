@@ -39,9 +39,7 @@ app.use(
 
 app.use(
   auth({
-    authorizationParams: {
-      response_type: 'code',
-  },
+    
     secret: SESSION_SECRET,
     authRequired: false,
     auth0Logout: true,
