@@ -47,14 +47,14 @@
     {
       "file": "src/web-app/index.js",
       "description": "## Modify the Expenses Route\n\nNow we'll modify the \"/expenses\" route in a similar way. Compare the block below to what's currently in the code. As before, we're adding error handling, and defining the path to the relevant data in our Expenses API.\n\n``` jsx\napp.get(\"/expenses\", requiresAuth(), async (req, res, next) => {\n    try {\n        const expenses = await axios.get(`${API_URL}/reports`);\n        res.render(\"expenses\", {\n           user: req.oidc && req.oidc.user,\n           expenses: expenses.data,\n        });\n    } catch (err) {\n        next(err);\n    }\n});\n```\n, then continue to the next step.",
-      "line": 91,
+      "line": 85,
       "selection": {
         "start": {
-          "line": 86,
+          "line": 80,
           "character": 1
         },
         "end": {
-          "line": 91,
+          "line": 85,
           "character": 4
         }
       }
