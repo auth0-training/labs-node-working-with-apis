@@ -4,8 +4,10 @@ clients: # Add other client settings https://auth0.com/docs/api/management/v2#!/
     app_type: "regular_web"
     callbacks:
       - "http://localhost:37500/callback"
+      - "https://*.preview.app.github.dev/callback"
     allowed_logout_urls:
       - "http://localhost:37500"
+      - "https://*.preview.app.github.dev"
     jwt_configuration: 
       alg: "RS256"
       
