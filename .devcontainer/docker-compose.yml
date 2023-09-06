@@ -1,11 +1,11 @@
-version: '3.8'
+version: '3.9'
 services:
   lab:
     build:
       context: .
       dockerfile: Dockerfile
       args:
-        VARIANT: 16-bullseye
+        VARIANT: latest
     deploy:
       resources:
         limits:
