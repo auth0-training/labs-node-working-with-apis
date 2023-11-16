@@ -1,7 +1,7 @@
 [![Auth0 Training](https://user-images.githubusercontent.com/73120/125103885-a2bb5d80-e091-11eb-8084-383003f1e484.png "Auth0 Training")](https://training.auth0.com)
 # Lab Node Working with APIs
 
-In this hands-on lab, learners will put their API knowledge into practice by creating an API in their Auth0 labs- tenant, deploying a test API into the lab environment, obtaining a test Access Token, and calling the test API using the token.
+In this hands-on lab, learners will put their API knowledge into practice by creating an API in their Auth0 tenant, deploying a test API into the lab environment, obtaining a test Access Token, and calling the test API using the token.
 
 ## Requirements
 
