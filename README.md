@@ -1,7 +1,7 @@
 [![Auth0 Training](https://user-images.githubusercontent.com/73120/125103885-a2bb5d80-e091-11eb-8084-383003f1e484.png "Auth0 Training")](https://training.auth0.com)
-# Lab Node Working with APIs
+# Lab: Add Authorization to Your API with Okta FGA and Auth0
 
-In this hands-on lab, learners will put their API knowledge into practice by creating an API in their Auth0 tenant, deploying a test API into the lab environment, obtaining a test Access Token, and calling the test API using the token.
+This hands-on lab walks you adding authorization to an API using Okta FGA. You’ll add authorization to an API that we provide you with and register this API with your Auth0 tenant.
 
 ## Requirements
 
