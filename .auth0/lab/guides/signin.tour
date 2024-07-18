@@ -1,12 +1,17 @@
 {
   "$schema": "https://aka.ms/codetour-schema",
-  "title": "0: signin",
+  "title": "0: Prerequisites",
   "steps": [
     {
       "file": "",
-      "description": "## Authorize the Auth0 Labs Extension to Access Your Default Tenant\nBefore getting started, you’ll need to authorize the Auth0 Labs extension to access your default tenant.\n\n1. #### Click [here](command:auth0.auth.signIn) to sign into your Auth0 account with the Auth0 extension.\n     A browser window will open requesting that you confirm that the code shown matches the one shown in the lower right hand side of your vscode window.\n1. #### Confirm that the values match, then click the **Confirm** button.\n     ![Confirm the values in VS Code](https://cdn.auth0.com/website/a0fun/v2/create-1.gif)   \n     ![Confirm the values in Auth0](https://cdn.auth0.com/website/a0fun/v2/create-0.gif)   \n1. #### The default tenant should already be selected (it starts with *dev-*) \n1. #### Scroll down and click Accept. You should see a success message. You can close this browser tab now!\nNext, you'll set the tenant up with the necessary Application and API to compete this lab.",
-      "line": 1
+      "description": "## Check that you have the required accounts\nBefore getting started, let's verify you have everything you need:\n\n1. #### An [Okta FGA account](https://dev.fga.com) to add authorization to resources exposed by the sample application.\n1. #### An [Auth0 account](https://auth0.com/signup) as our identity provider.\n1. #### A [Vercel account](https://vercel.com/signup) as a key-value store for the resources served by the sample API.\n\nFree versions of these accounts are adequate for this lab.",
+      "line": 1,
+      "title": "Check that you have the required accounts"
+    },
+    {
+      "title": "Create the .env file",
+      "description": "## Create the `.env` file\n\nClick [here](command:codetour.sendTextToTerminal?[\"cp .env-sample .env\"]) to create the .env file. We'll use this file to set environment variables that will be referenced by our sample application."
     }
   ],
-  "nextTour": "1: Create the Expenses API in your Auth0 Tenant"
+  "nextTour": "1: Register the sample application in your Auth0 tenant"
 }
