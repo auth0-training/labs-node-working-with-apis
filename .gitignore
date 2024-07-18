@@ -10,7 +10,8 @@
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
+
 
 # Thumbnails
 ._*
@@ -166,6 +167,19 @@ dist
 # Ignore all local history of files
 .history
 .ionide
+
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# uploads
+/upload/*
+!/upload/.gitkeep 
+
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,macos,node
 

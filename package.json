@@ -1,36 +1,66 @@
 {
-  "name": "lab-node-working-with-apis",
-  "version": "1.1.2",
-  "description": "A set of example applications for that rely on the Auth0 VSCode Extension.",
+  "name": "lab-node-working-with-okta-fga",
+  "version": "1.1.1",
+  "private": true,
   "license": "MIT",
   "author": "Auth0",
   "bugs": {
-    "url": "https://github.com/auth0-training/labs-node-working-with-apis/issues"
+    "url": "https://github.com/auth0-training/lab-node-working-with-okta-fga/issues"
   },
-  "homepage": "https://github.com/auth0-training/labs-node-working-with-apis#readme",
+  "homepage": "https://github.com/auth0-training/lab-node-working-with-okta-fga#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/auth0-training/labs-node-working-with-apis.git"
+    "url": "git+https://github.com/auth0-training/lab-node-working-with-okta-fga.git"
   },
   "scripts": {
-    "init": "concurrently \"npm:init:dependencies\"",
-    "init:dependencies": "concurrently \"npm:api:dependencies\" \"npm:web-app:dependencies\"",
-    "api:start": "npm start --prefix ./src/api",
-    "api:dependencies": "npm install --prefix ./src/api",
-    "web-app:start": "npm start --prefix ./src/web-app",
-    "web-app:dependencies": "npm install --prefix ./src/web-app"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
-  "keywords": [
-    "auth0",
-    "oauth2",
-    "authorization",
-    "samples",
-    "tools",
-    "labs"
-  ],
   "dependencies": {
+    "@auth0/nextjs-auth0": "^3.5.0",
+    "@openfga/sdk": "^0.3.5",
+    "@radix-ui/react-avatar": "^1.0.4",
+    "@radix-ui/react-dialog": "^1.0.5",
+    "@radix-ui/react-dropdown-menu": "^2.0.6",
+    "@radix-ui/react-label": "^2.0.2",
+    "@radix-ui/react-scroll-area": "^1.0.5",
+    "@radix-ui/react-slot": "^1.0.2",
+    "@radix-ui/react-toast": "^1.1.5",
+    "@vercel/kv": "^1.0.1",
+    "ai": "^3.0.9",
+    "auth0": "^4.3.1",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
+    "lucide-react": "^0.356.0",
+    "mime": "^4.0.1",
+    "next": "^14.2.5",
+    "openai": "^4.28.4",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-dropzone": "^14.2.3",
+    "server-only": "^0.0.1",
+    "swr": "^2.2.5",
+    "tailwind-merge": "^2.2.1",
+    "tailwindcss-animate": "^1.0.7",
+    "undici": "^6.10.1",
+    "uuid": "^9.0.1",
     "concurrently": "^7.3.0",
     "eslint": "^8.20.0",
     "prettier": "^2.7.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@types/uuid": "^9.0.8",
+    "autoprefixer": "^10.4.18",
+    "eslint": "^8",
+    "eslint-config-next": "14.1.3",
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
   }
 }
+

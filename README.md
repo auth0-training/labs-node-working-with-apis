@@ -1,12 +1,22 @@
 [![Auth0 Training](https://user-images.githubusercontent.com/73120/125103885-a2bb5d80-e091-11eb-8084-383003f1e484.png "Auth0 Training")](https://training.auth0.com)
 # Lab: Add Authorization to Your API with Okta FGA and Auth0
 
-This hands-on lab walks you adding authorization to an API using Okta FGA. You’ll add authorization to an API that we provide you with and register this API with your Auth0 tenant.
+This hands-on lab walks you adding authorization to an API using Okta FGA. You’ll add authorization to an API that we provide you with and register the associated client web application with Auth0 as an identity provider.
+
+The application is a simplified Google Drive-style application to demonstrate how to use [Okta FGA](https://fga.dev) to handle Fine Grained Authorization (FGA) on a per-resource level.
+
+A user can log in, add files (pictures only), and create folders. Uploaded files are only visible to a user by default. They can choose to either share a file directly with other users or share folders (or subfolders), and all files contained within them will be shared automatically. Files can be shared with other users available in the Auth0 tenant; the application will look for them based on their email address.
+
+This demo uses both Auth0 ([create a free account here](https://auth0.com)), and either [OpenFGA](https://openfga.dev) or its hosted and managed version [Okta FGA](https://fga.dev).
+
+The data is stored in a [Vercel KV store](https://vercel.com/docs/storage/vercel-kv).
 
 ## Requirements
 
 1. A GitHub account: Our labs use GitHub Codespaces, so you'll need a GitHub account to access them. Create a free account [here](https://docs.github.com/en/get-started/signing-up-for-github/signing-up-for-a-new-github-account).
 2. An Auth0 account: You'll also need an Auth0 account. If you do not already have one, you can create a free one [here](https://auth0.com/signup).
+3. An [Okta FGA](https://fga.dev) account.
+4. A free [Vercel account](https://vercel.com/signup) account to store data in a Vercel KV store.
 
 ## Accessing and Working with Auth0 Labs
 
