@@ -5,14 +5,86 @@
     {
       "file": "",
       "line": 1,
-      "title": "Explore the sample application",
-      "description": "## Explore the sample application\n\nIn this lab, you're provided with a sample application that is a simplified Google Drive-style application. \n\nClick [here](command:workbench.action.files.openFolder(\"/src/app\")) to explore the application.\n\nA user can log in, add files (pictures only), and create folders. Uploaded files are only visible to a user by default. They can choose to either share a file directly with other users or share folders (or subfolders), and all files contained within them will be shared automatically. Files can be shared with other users available in the Auth0 tenant; the application will look for them based on their email address."
+      "title": "About the sample application",
+      "description": "## About the sample application\n\nIn this lab, you're provided with a sample application that is a simplified Google Drive-style application. It's located in `/src/app`.\n\nWe'll explore the code later in the lab, but below is a brief description of the application:\n\n>A user can log in, add files (pictures only), and create folders. Uploaded files are only visible to a user by default. They can choose to either share a file directly with other users or share folders (or subfolders), and all files contained within them will be shared automatically. Files can be shared with other users available in the Auth0 tenant; the application will look for them based on their email address."
     },
     {
       "file": "",
       "line": 1,
       "title": "Register the application in your Auth0 tenant",
-      "description": "## Register the sample application\nSince we're using Auth0 as our identity provider, you'll need to register and configure the sample application in your Auth0 tenant.\n\n1. Sign in to the Auth0 management dashboard.\n1. Navigate to **Applications** > **Applications**.\n1. Select **Create Application**.\n1. Enter **Drive App** in the **Name** field.\n1. Ensure **Web** is selected. You do not have to select a technology.\n1. Select the **Continue** button.\n1. On the next screen, select the **Settings** tab.\n1. Click [here](command:codetour.sendTextToTerminal?[\"echo https://$CODESPACE_NAME-3000.app.github.dev/api/auth/callback\"]) and copy the URL that prints here in the Terminal.\n1. Paste the value in the **Allowed Callback URLs** field.\n1. Select **Save Changes**.\n\n"
+      "description": "## Register the sample application\nSince we're using Auth0 as our identity provider, you'll need to register and configure the sample application in your Auth0 tenant.\n\n1. Sign in to the Auth0 management dashboard.\n1. Navigate to **Applications** > **Applications**.\n1. Select **Create Application**.\n1. Enter **Drive App** in the **Name** field.\n1. Ensure **Web** is selected. You do not have to select a technology.\n1. Select the **Continue** button.\n1. On the next screen, select the **Settings** tab.\n1. Click [here](command:codetour.sendTextToTerminal?[\"echo https://$CODESPACE_NAME-3000.app.github.dev/api/auth/callback\"]) and copy the URL that prints here in the Terminal.\n1. Paste the value in the **Allowed Callback URLs** field.\n1. Select **Save Changes**.\n\n",
+      "selection": {
+        "start": {
+          "line": 11,
+          "character": 60
+        },
+        "end": {
+          "line": 11,
+          "character": 103
+        }
+      }
+    },
+    {
+      "file": ".env",
+      "description": "## Define `AUTH0_BASE_URL`\n1. Click [here](command:codetour.sendTextToTerminal?[\"echo https://$CODESPACE_NAME-3000.app.github.dev\"]) and copy the URL value that prints out.\n2. Paste this value on the line highlighted above to set the `AUTH0_BASE_URL` variable.",
+      "line": 9,
+      "title": "Define AUTH0_BASE_URL",
+      "selection": {
+        "start": {
+          "line": 2,
+          "character": 52
+        },
+        "end": {
+          "line": 2,
+          "character": 105
+        }
+      }
+    },
+    {
+      "file": ".env",
+      "description": "## Define `AUTH0_ISSUER_BASE_URL`\n\n1. From the Settings tab of the application you registered in your Auth0 tenant, copy the **Domain** value.\n2. Paste this value to the line highlighted above to set the `AUTH0_ISSUER_BASE_URL` variable. Note that this should include `https://`.",
+      "line": 10,
+      "selection": {
+        "start": {
+          "line": 1,
+          "character": 25
+        },
+        "end": {
+          "line": 1,
+          "character": 30
+        }
+      },
+      "title": "Define AUTH0_ISSUER_BASE_URL"
+    },
+    {
+      "file": ".env",
+      "description": "## Define `AUTH0_CLIENT_ID`\n\n1. From the Settings tab of the application you registered in your Auth0 tenant, copy the **Client Id** value.\n2. Paste this value to the line highlighted above to set the `AUTH0_CLIENT_ID` variable. ",
+      "line": 11,
+      "selection": {
+        "start": {
+          "line": 3,
+          "character": 1
+        },
+        "end": {
+          "line": 4,
+          "character": 90
+        }
+      }
+    },
+    {
+      "file": ".env",
+      "description": "## Define `AUTH0_CLIENT_SECRET`\n\n1. From the Settings tab of the application you registered in your Auth0 tenant, copy the **Client Secret** value.\n2. Paste this value to the line highlighted above to set the `AUTH0_CLIENT_SECRET` variable. \n3. Click [here](command:workbench.action.files.save) to save your changes to the `.env` file.",
+      "line": 12,
+      "selection": {
+        "start": {
+          "line": 1,
+          "character": 1
+        },
+        "end": {
+          "line": 1,
+          "character": 30
+        }
+      }
     }
   ],
   "nextTour": "2: Configure the Web Application to Pull Expenses from the API"
