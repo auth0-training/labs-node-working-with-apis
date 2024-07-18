@@ -12,7 +12,7 @@
       "file": "",
       "line": 1,
       "title": "Register the application in your Auth0 tenant",
-      "description": "## Register the sample application\nSince we're using Auth0 as our identity provider, you'll need to register and configure the sample application in your Auth0 tenant.\n\n1. Sign in to the Auth0 management dashboard.\n1. Navigate to **Applications** > **Applications**.\n1. Select **Create Application**.\n1. Enter **Drive App** in the **Name** field.\n1. Ensure **Web** is selected. You do not have to select a technology.\n1. Select the **Continue** button.\n1. On the next screen, select the **Settings** tab.\n1. Click [here](command:codetour.sendTextToTerminal?[\"echo https://$CODESPACE_NAME-3000.app.github.dev/api/auth/callback\"]) and copy the URL that prints here in the Terminal.\n1. Paste the value in the **Allowed Callback URLs** field.\n1. Select **Save Changes**.\n\n",
+      "description": "## Register the sample application\nSince we're using Auth0 as our identity provider, you'll need to register and configure the sample application in your Auth0 tenant.\n\n1. Sign in to the [Auth0 Management Dashboard](https://manage.auth0.com/).\n1. Navigate to **Applications** > **Applications**.\n1. Select **Create Application**.\n1. Enter **Drive App** in the **Name** field.\n1. Ensure **Web** is selected. You do not have to select a technology.\n1. Select the **Continue** button.\n1. On the next screen, select the **Settings** tab.\n1. Click [here](command:codetour.sendTextToTerminal?[\"echo https://$CODESPACE_NAME-3000.app.github.dev/api/auth/callback\"]) and copy the URL that prints here in the Terminal.\n1. Paste the value in the **Allowed Callback URLs** field.\n1. Select **Save Changes**.\n\n",
       "selection": {
         "start": {
           "line": 11,
@@ -77,15 +77,15 @@
       "line": 12,
       "selection": {
         "start": {
-          "line": 1,
-          "character": 1
+          "line": 5,
+          "character": 3
         },
         "end": {
-          "line": 1,
-          "character": 30
+          "line": 5,
+          "character": 94
         }
       }
     }
   ],
-  "nextTour": "2: Configure the Web Application to Pull Expenses from the API"
+  "nextTour": "2: Create an authorization model in Okta FGA"
 }
