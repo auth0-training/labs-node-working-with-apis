@@ -89,5 +89,5 @@
       "title": "Define AUTH0_CLIENT_SECRET"
     }
   ],
-  "nextTour": "2: Create an authorization model in Okta FGA"
+  "nextTour": "2: Create and test an authorization model in Okta FGA"
 }

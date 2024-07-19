@@ -1,6 +1,6 @@
 {
   "$schema": "https://aka.ms/codetour-schema",
-  "title": "2: Create an authorization model in Okta FGA",
+  "title": "2: Create and test an authorization model in Okta FGA",
   "steps": [
     {
       "file": "README.md",
@@ -30,8 +30,54 @@
       "line": 27
     },
     {
-      "title": "Add a relationship tuple",
-      "description": ""
+      "title": "Add relationship tuples",
+      "description": "## Add relationship tuples\n\nIn order to test our model, we'll need to first manually create some relationship tuples.\n\n1. In the Okta FGA Dashboard, to **Tuple Management**.\n1. Select the **Add Tuple** button.\n1. In the **USER** field, enter **user:auth0user**.\n1. In the **OBJECT** section:\n    - Select **folder** from the dropdown.\n    - Enter **untitledfolder** in the **Enter ID** field.\n1. In the **RELATION** section, select **owner** .\n1. Select the **Add Tuple** button.\n\n> You've just added a tuple that indicates that the user with the ID **auth0user** is the **owner** of a folder with the ID **untitledfolder**. Note that we've used friendly names for the IDs of these objects for testing purposes. In a real scenario, these would be UUIDs that refer to real users (e.g., an Auth0 user ID) and resources (e.g. IDs in a Vercel KV store)).\n\n### Next, you'll add two more tuples using the same process as above:\n\n- Second tuple (The folder untitledfolder is the parent of the file untitledoc):\n    - **USER**: folder:untitledfolder\n    - **OBJECT**: file:untitleddoc\n    - **RELATION**: parent\n- Third tuple (The user auth0user is the owner of the file untitledoc)::\n    - **USER**: user:auth0user\n    - **OBJECT**: file:untitleddoc\n    - **RELATION**: owner\n\nOnce you're finished, you should have three tuples like so:\n![img](https://cdn.auth0.com/website/auth0-training/oktafga/fga-tuples.png)\n"
+    },
+    {
+      "title": "Write an assertion in Developer Mode",
+      "description": "## Write an assertion in Developer Mode\nNow that we have some relationship tuples in our store, we can test our model by writing assertions in Developer Mode.\n\n1. From the Okta FGA Dashboard, select **Developer Mode**.\n1. In the **Assertions** panel, select the **Add Assertion** button.\n1. In the **USER** field, enter **user:auth0user**.\n1. In the **OBJECT** field:\n    - Select **folder** from the dropdown.\n    - Enter **untitledfolder** in the **Enter ID** field.\n1. In the **RELATION** field, select **owner**.\n1. Leave the **EXPECTATION** toggle switched to **TRUE**.\n1. Select the **Add Assertion** button.\n\n> You've just written an assertion that will test whether or not the user with the ID **auth0user** is the **owner** of the folder with the ID **untitledfolder**. For this assertion to pass, it should return **TRUE**.",
+      "selection": {
+        "start": {
+          "line": 6,
+          "character": 1
+        },
+        "end": {
+          "line": 12,
+          "character": 40
+        }
+      }
+    },
+    {
+      "title": "Test the model in Developer Mode",
+      "description": "## Test the model in Developer Mode\nNow that you have written an assertion, you'll run it to test it against the model and tuples you have in your store.\n\n1. Select the **Run All** button in the **Assertions** section of the Developer Mode page.\n1. You should see **1 pass, 0 fail**. If your assertion failed, check that the user and folder IDs in your tuples match the ones in your assertion.\n\n> You've just tested your first assertion! It wasn't a particularly interesting assertion since it tested what was explicitly represented by one of our tuples: the user with the ID **auth0user** is the **owner** of the folder with the ID **untitledfolder**. Next, we'll write a more interesting assertion.",
+      "selection": {
+        "start": {
+          "line": 1,
+          "character": 1
+        },
+        "end": {
+          "line": 7,
+          "character": 306
+        }
+      }
+    },
+    {
+      "title": "Add more assertions",
+      "description": "## Add more assertions\n\nLet's write some assertions that test an inherent relationships. If the user with the **ID** auth0user is the **owner** of a file with the ID **untitleddoc**, it must be true that that user can view, write, and share that file.\n\n1. In the Assertions panel of Developer Mode, select **Add Assertion**\n1. In the **USER** field, enter **user:auth0user**.\n1. In the **OBJECT** field:\n    - Select **file** from the dropdown.\n    - Enter **untitleddoc** in the **Enter ID** field.\n1. In the **RELATION** field, select **can_view**.\n1. Leave the **EXPECTATION** toggle switched to **TRUE**.\n1. Select the **Add Assertion** button.\n1. Enter two more assertions using the process above that will test whether or not the user **user:auth0user** can write and can share the file **untitleddoc**.\n\nOnce you're finished, you'll have the following three assertions:\n\n![img](https://cdn.auth0.com/website/auth0-training/oktafga/fga-assertions.png)",
+      "selection": {
+        "start": {
+          "line": 3,
+          "character": 66
+        },
+        "end": {
+          "line": 3,
+          "character": 228
+        }
+      }
+    },
+    {
+      "title": "Test all assertions",
+      "description": "## Test all assertions\n\nNow that we have written more assertions, let's test them out!\n\n1. Select the **Run All** button in the **Assertions** section of the Developer Mode page.\n1. You should see **4 pass, 0 fail**. If any of your assertions failed, check that the IDs in your tuples match the ones in your assertions. In practice, you may also need to edit your model if it doesn't correctly capture the relationships you want to express.\n\n> You've just tested some inherent relationships expressed by your model! If the user with the **ID** auth0user is the **owner** of a file with the ID **untitleddoc**, it must be true that that user can view, write, and share that file."
     }
   ],
   "nextTour": "3: Create a Vercel KV store"
