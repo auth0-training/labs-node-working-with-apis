@@ -39,7 +39,7 @@ export async function authorizeRootFolder(userId: string): Promise<void> {
 
 export async function filterFilesForUser(
   files: Array<StoredFile>,
-  user: string,
+  user: string
 ): Promise<Array<StoredFile>> {
   const { responses } = await fgaClient.batchCheck(
     files.map((file) => {
@@ -48,23 +48,23 @@ export async function filterFilesForUser(
         object: `file:${file?.id}`,
         relation: "can_view",
       };
-    }),
+    })
   );
 
   return responses
     .map((check) =>
       check.allowed
         ? files.find(
-            (file) => file?.id === stripObjectName(check._request.object),
+            (file) => file?.id === stripObjectName(check._request.object)
           )
-        : undefined,
+        : undefined
     )
     .filter(Boolean) as Array<StoredFile>;
 }
 
 export async function filterFoldersForUser(
   folders: Array<Folder>,
-  user: string,
+  user: string
 ): Promise<Array<Folder>> {
   const { responses } = await fgaClient.batchCheck(
     folders.map((folder) => {
@@ -73,16 +73,16 @@ export async function filterFoldersForUser(
         object: `folder:${folder?.id}`,
         relation: "can_view",
       };
-    }),
+    })
   );
 
   return responses
     .map((check) =>
       check.allowed
         ? folders.find(
-            (folder) => folder?.id === stripObjectName(check._request.object),
+            (folder) => folder?.id === stripObjectName(check._request.object)
           )
-        : undefined,
+        : undefined
     )
     .filter(Boolean) as Array<Folder>;
 }
