@@ -1,0 +1,26 @@
+model
+  schema 1.1
+
+type user
+
+type file
+  relations
+    define can_delete: owner or owner from parent
+    define can_share: owner or owner from parent
+    define can_view: viewer or owner or viewer from parent
+    define can_write: owner or owner from parent
+    define is_owned: owner
+    define is_shared: can_view but not owner
+    define owner: [user]
+    define parent: [folder]
+    define viewer: [user, user:*]
+
+type folder
+  relations
+    define can_create_file: owner or owner from parent
+    define can_create_folder: owner or owner from parent
+    define can_share: owner or owner from parent
+    define can_view: viewer or owner or viewer from parent
+    define owner: [user]
+    define parent: [folder]
+    define viewer: [user, user:*] or owner or viewer from parent

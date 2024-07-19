@@ -11,8 +11,8 @@
     {
       "file": "README.md",
       "line": 1,
-      "title": "Create an Okta FGA store",
-      "description": "## Create an Okta FGA store\n\n1. Log in to the [Okta FGA dashboard](https://dashboard.fga.dev/).\n1. Create a new store named **test** in the **US** jurisdiction.",
+      "title": "Select your Okta FGA store",
+      "description": "## Select your Okta FGA store\n\n1. Log in to the [Okta FGA dashboard](https://dashboard.fga.dev/).\n1. If you haven't already, create a new store named **test** in the **US** jurisdiction. Otherwise, select the **test** store.",
       "selection": {
         "start": {
           "line": 2,
@@ -23,6 +23,15 @@
           "character": 78
         }
       }
+    },
+    {
+      "file": "model.txt",
+      "description": "## Create your authorization model in the Model Explorer\n\n1. Select **Model Explorer**.\n2. Copy the contents of `model.txt` (open above).\n3. Paste the contents into the **Model** panel, replacing the sample model that was there by default.\n4. Select **Save**.\n\nThe **Preview** panel should look similar to:\n![img](https://cdn.auth0.com/website/auth0-training/oktafga/model-preview.png)",
+      "line": 27
+    },
+    {
+      "title": "Add a relationship tuple",
+      "description": ""
     }
   ],
   "nextTour": "3: Create a Vercel KV store"

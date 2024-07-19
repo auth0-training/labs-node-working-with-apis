@@ -69,7 +69,8 @@
           "line": 4,
           "character": 90
         }
-      }
+      },
+      "title": "Define AUTH0_CLIENT_ID"
     },
     {
       "file": ".env",
@@ -84,7 +85,8 @@
           "line": 5,
           "character": 94
         }
-      }
+      },
+      "title": "Define AUTH0_CLIENT_SECRET"
     }
   ],
   "nextTour": "2: Create an authorization model in Okta FGA"
