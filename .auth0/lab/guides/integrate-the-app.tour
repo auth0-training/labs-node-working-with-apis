@@ -28,13 +28,31 @@
     {
       "file": "src/app/authorization.ts",
       "description": "## `check()` method\n\nHere we use OpenFGA's `check()` method, which is a method that checks if there's a relationship between a consumer and a resource. In this case, we're checking if a particular user is the owner of a specific folder.",
-      "line": 23,
+      "selection": {
+        "start": {
+          "line": 23,
+          "character": 1
+        },
+        "end": {
+          "line": 27,
+          "character": 28
+        }
+      },
       "title": "check() method"
     },
     {
       "file": "src/app/authorization.ts",
       "description": "## `writeTuples()` method\n\nHere we use OpenFGA's `writeTuples()` method, which writes a new tuples containing data about specific relationships to our Okta FGA store. Here's we're creating a new tuple specifying that a particular user is the owner of a particular folder.",
-      "line": 30,
+      "selection": {
+        "start": {
+          "line": 30,
+          "character": 1
+        },
+        "end": {
+          "line": 36,
+          "character": 28
+        }
+      },
       "title": "writeTuples() method"
     },
     {
