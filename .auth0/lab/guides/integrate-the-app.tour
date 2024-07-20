@@ -4,7 +4,7 @@
   "steps": [
     {
       "title": "Install dependencies",
-      "description": "## Install dependencies\n1. Click [here](command:codetour.sendTextToTerminal?[\"npm install\"]) to install the application dependencies.\n\n> Note: This runs the command `npm install`"
+      "description": "## Install dependencies\n1. Click [here](command:codetour.sendTextToTerminal?[\"npm install\"]) to install the application dependencies.\n\n> Note: This runs the command `npm install`. It may take a moment for all dependencies to install."
     },
     {
       "file": "src/app/authorization.ts",
