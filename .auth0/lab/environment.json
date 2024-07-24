@@ -1,26 +1,26 @@
 {
-  "name": "Lab Node Working with APIs",
+  "name": "Lab Node Call Your API from a M2M app",
   "version": "1.1.1",
   "resources": "resources.yml",
   "unauthenticatedTour": ".auth0/lab/guides/signin.tour",
   "postConfigureTour": ".auth0/lab/guides/create-the-expenses-api-in-your-labs-tenant.tour",
   "clients": [
     {
-      "name": "Lab: Web App",
-      "directory": "src/web-app",
+      "name": "Lab: M2M App",
+      "directory": "src/m2m-app",
       "env": {
         "API_URL": "Lab: API",
         "ISSUER_BASE_URL": "$tenant_base_url",
         "CLIENT_ID": "$client_id",
         "CLIENT_SECRET": "$client_secret",
         "SESSION_SECRET": "a long, randomly-generated string stored in env",
-        "PORT": 37500
+        "PORT": 39500
       }
     }
   ],
   "resourceServers": [
     {
-      "name": "Lab: API",
+      "name": "Lab: World Mappers API",
       "directory": "src/api",
       "env": {
         "ISSUER_BASE_URL": "$tenant_base_url",
