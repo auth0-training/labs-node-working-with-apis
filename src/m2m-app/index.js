@@ -9,97 +9,65 @@ const {
   PORT,
 } = require("./env-config");
 
-const express = require("express");
-const session = require("express-session");
-const createError = require("http-errors");
-const cookieParser = require("cookie-parser");
-const logger = require("morgan");
-const path = require("path");
-const { createServer } = require("http");
-const { auth, requiresAuth } = require("express-openid-connect");
+const request = require("request");
 
-const app = express();
+const getAccessToken  = function(callback){
+  if (!ISSUER_BASE_URL){
+    callback(new Error("The ISSUER_BASE_URL is required in order to get an access token."))
+  }
+  console.log(`Fetching access token from https://${ISSUER_BASE_URL}/oauth/token`)
 
-app.use(checkUrl()); // Used to normalize URL
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "pug");
-app.use(logger("combined"));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public")));
 
-app.use(
-  session({
-    secret: SESSION_SECRET,
-    resave: false,
-    saveUninitialized: true,
-  })
-);
-
-app.use(
-  auth({
-    secret: SESSION_SECRET,
-    authRequired: false,
-    auth0Logout: true,
-    baseURL: APP_URL,
-  })
-);
-
-const expenses = [
+const config = 
   {
-    date: new Date(),
-    description: "Pizza for a Coding Dojo session.",
-    value: 102,
-  },
-  {
-    date: new Date(),
-    description: "Coffee for a Coding Dojo session.",
-    value: 42,
-  },
-];
+    method: 'POST',
+    url: 'https://' + env('AUTH0_DOMAIN') + '/oauth/token',
+    headers: {
+      'cache-control': 'no-cache',
+      'content-type': 'application/json'
+    },
+    body: {
+      audience: API_URL,
+      grant_type: 'client_credentials',
+      client_id: CLIENT_ID,
+      client_secret: CLIENT_SECRET
+    },
+    json: true
+  };
 
-app.get("/", async (req, res) => {
-  res.render("home", {
-    user: req.oidc && req.oidc.user,
-    total: expenses.reduce((accum, expense) => accum + expense.value, 0),
-    count: expenses.length,
+  request(options, function(err, res, body) {
+    if (err || res.statusCode < 200 || res.statusCode >= 300) {
+      return callback(res && res.body || err);
+    }
+
+    callback(null, body.access_token);
   });
-});
+}
 
-app.get("/user", requiresAuth(), async (req, res) => {
-  res.render("user", {
-    user: req.oidc && req.oidc.user,
-    id_token: req.oidc && req.oidc.idToken,
-    access_token: req.oidc && req.oidc.accessToken,
-    refresh_token: req.oidc && req.oidc.refreshToken,
+console.log(`Starting the Gift Deliveries worker at ${APP_URL}`);
+
+// Get the access token.
+getAccessToken(function(err, accessToken) {
+  if (err) {
+    console.log('Error getting a token:', err.message || err);
+    return;
+  }
+
+  console.log('Getting directions to the Auth0 Office from the World Mappers API');
+
+  // Call the Worldmappers API with the access token.
+  var options = {
+    url: APP_URL,
+    headers: {
+      Authorization: 'Bearer ' + accessToken
+    }
+  }
+  request.get(options, function(err, res, body) {
+    if (err || res.statusCode < 200 || res.statusCode >= 300) {
+      console.log(res && res.body || err);
+    } else {
+      console.log('Directions:', body);
+    }
   });
-});
+})
 
-app.get("/expenses", requiresAuth(), async (req, res, next) => {
-  res.render("expenses", {
-    user: req.oidc && req.oidc.user,
-    expenses,
-  });
-});
-
-// catch 404 and forward to error handler
-app.use(function (req, res, next) {
-  next(createError(404));
-});
-
-// error handler
-app.use(function (err, req, res, next) {
-  res.locals.message = err.message;
-  res.locals.error = err;
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render("error", {
-    user: req.oidc && req.oidc.user,
-  });
-});
-
-createServer(app).listen(PORT, () => {
-  console.log(`WEB APP: ${APP_URL}`);
-});
