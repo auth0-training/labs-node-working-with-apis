@@ -1,7 +1,7 @@
 const {
   checkUrl,
   APP_URL, // Public URL for this app
-  API_URL, // URL for Expenses API
+  API_URL, // URL for Worldmapper API
   ISSUER_BASE_URL, // Auth0 Tenant Url
   CLIENT_ID, // Auth0 Web App Client
   CLIENT_SECRET, // Auth0 Web App CLient Secret
@@ -27,7 +27,7 @@ const config =
       'content-type': 'application/json'
     },
     body: {
-      audience: API_URL,
+      audience: 'https://worldmapper-api',
       grant_type: 'client_credentials',
       client_id: CLIENT_ID,
       client_secret: CLIENT_SECRET
@@ -50,14 +50,16 @@ console.log(`Starting the Gift Deliveries worker at ${APP_URL}`);
 getAccessToken(function(err, accessToken) {
   if (err) {
     console.log('Error getting a token:', err.message || err);
+    console.log(API_URL);
     return;
   }
 
   console.log('Getting directions to the Auth0 Office from the World Mappers API');
+  console.log(accessToken);
 
   // Call the Worldmappers API with the access token.
   var options = {
-    url: APP_URL,
+    url: `${API_URL}/api/directions`,
     headers: {
       Authorization: 'Bearer ' + accessToken
     }
