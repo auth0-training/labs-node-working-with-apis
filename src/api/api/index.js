@@ -1,6 +1,5 @@
 require("dotenv").config();
 const express = require("express");
-const morgan = require('morgan');
 const cors = require("cors");
 const { createServer } = require("http");
 const { auth, requiredScopes } = require("express-oauth2-jwt-bearer");
@@ -14,9 +13,6 @@ const {
 
 const app = express();
 
-app.use(morgan(':method :url :status :response-time ms - :res[content-length]', {
-  stream: logger.stream
-}));
 
 // Used to normalize URL
 app.use(checkUrl());
@@ -67,6 +63,7 @@ app.get("/api", (req, res) => {
   if (req.user) {
     console.log('Current user: ' + req.user.sub + ' (scope=' + (req.user.scope || 'N/A') + ')');
   }
+  res.status(200).end("OK");
 });
 
 // 👆 public routes above 👆

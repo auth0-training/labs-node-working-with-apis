@@ -7,7 +7,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Launch API",
+      "name": "Launch Worldmapper API",
       "skipFiles": [
         "<node_internals>/**"
       ],
@@ -20,12 +20,12 @@
     },{
       "type": "node",
       "request": "launch",
-      "name": "Launch Web App",
+      "name": "Launch M2M App",
       "skipFiles": [
         "<node_internals>/**"
       ],
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "web-app:start"],
+      "runtimeArgs": ["run", "m2m-app:start"],
       "port": 9007,
       "presentation": {
         "hidden":true
@@ -36,8 +36,8 @@
     {
       "name": "Launch All",
       "configurations": [ 
-        "Launch API",
-        "Launch Web App"
+        "Launch Worldmapper API",
+        "Launch M2M App"
       ]
     }
   ]

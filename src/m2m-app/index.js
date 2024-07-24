@@ -15,13 +15,13 @@ const getAccessToken  = function(callback){
   if (!ISSUER_BASE_URL){
     callback(new Error("The ISSUER_BASE_URL is required in order to get an access token."))
   }
-  console.log(`Fetching access token from https://${ISSUER_BASE_URL}/oauth/token`)
+  console.log(`Fetching access token from ${ISSUER_BASE_URL}/oauth/token`)
 
 
 const config = 
   {
     method: 'POST',
-    url: 'https://' + env('AUTH0_DOMAIN') + '/oauth/token',
+    url: `${ISSUER_BASE_URL}/oauth/token`,
     headers: {
       'cache-control': 'no-cache',
       'content-type': 'application/json'
@@ -35,7 +35,7 @@ const config =
     json: true
   };
 
-  request(options, function(err, res, body) {
+  request(config, function(err, res, body) {
     if (err || res.statusCode < 200 || res.statusCode >= 300) {
       return callback(res && res.body || err);
     }
