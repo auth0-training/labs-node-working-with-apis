@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.191.1/containers/javascript-node
 {
-  "name": "labs-node-working-with-apis",
+  "name": "labs-node-calling-an-api-from-m2m",
   "dockerComposeFile": "docker-compose.yml",
   "service":"lab",
   "workspaceFolder": "/workspace",
@@ -18,7 +18,7 @@
   ],
   "forwardPorts": [
     35500, //API
-    37500, //Web App
+    39500 //M2M
   ],
   "shutdownAction": "stopCompose",
   "postStartCommand": "npm install -g npm@latest && npm run init",

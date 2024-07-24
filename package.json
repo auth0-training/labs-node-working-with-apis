@@ -14,11 +14,11 @@
   },
   "scripts": {
     "init": "concurrently \"npm:init:dependencies\"",
-    "init:dependencies": "concurrently \"npm:api:dependencies\" \"npm:web-app:dependencies\"",
+    "init:dependencies": "concurrently \"npm:api:dependencies\" \"npm:m2m-app:dependencies\"",
     "api:start": "npm start --prefix ./src/api",
     "api:dependencies": "npm install --prefix ./src/api",
-    "web-app:start": "npm start --prefix ./src/web-app",
-    "web-app:dependencies": "npm install --prefix ./src/web-app"
+    "m2m-app:start": "npm start --prefix ./src/m2m-app",
+    "m2m-app:dependencies": "npm install --prefix ./src/m2m-app"
   },
   "keywords": [
     "auth0",

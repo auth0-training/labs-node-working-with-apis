@@ -1,24 +1,24 @@
 {
-  "name": "expenses-api-express",
+  "name": "worldmappers-api-express",
   "version": "1.0.0",
-  "description": "Auth0 Labs Sample API",
+  "description": "Auth0 Labs Worldmappers API",
   "license": "MIT",
   "author": "Auth0",
   "main": "api/index.js",
   "bugs": {
-    "url": "https://github.com/auth0-training/labs-node-working-with-apis/issues"
+    "url": "https://github.com/auth0-training/labs-node-calling-an-api-from-m2m/issues"
   },
-  "homepage": "https://github.com/auth0-training/labs-node-working-with-apis#readme",
+  "homepage": "https://github.com/auth0-training/labs-node-calling-an-api-from-m2m#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/auth0-training/labs-node-working-with-apis.git"
+    "url": "git+https://github.com/auth0-training/labs-node-calling-an-api-from-m2m.git"
   },
   "scripts": {
     "start": "PORT=$npm_package_config_expense_api_port AUDIENCE=$npm_package_config_expense_api_audience node api/index"
   },
   "config": {
     "expense_api_port": 35500,
-    "expense_api_audience": "https://expenses-api"
+    "expense_api_audience": "https://worldmappers-api"
   },
   "keywords": [
     "auth0",
