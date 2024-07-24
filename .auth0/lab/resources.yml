@@ -1,13 +1,25 @@
 clients: # Add other client settings https://auth0.com/docs/api/management/v2#!/Clients/post_clients
   -
-    name: "Lab: Web App"
-    app_type: "regular_web"
+    name: "Lab: M2M App"
+    app_type: "non_interactive"
     callbacks:
-      - "http://localhost:37500/callback"
-      - https://##CODESPACE_NAME##-37500.app.github.dev/callback
+      - "http://localhost:39500/callback"
+      - https://##CODESPACE_NAME##-39500.app.github.dev/callback
     allowed_logout_urls:
-      - "http://localhost:37500"
-      - https://##CODESPACE_NAME##-37500.app.github.dev
+      - "http://localhost:39500"
+      - https://##CODESPACE_NAME##-39500.app.github.dev
     jwt_configuration: 
       alg: "RS256"
-      
+
+resourceServers: # Add other resource server settings (https://auth0.com/docs/api/management/v2#!/Resource_Servers/post_resource_servers)
+  -
+    name: "Lab: Worldmapper API"
+    identifier: "https://worldmapper-api"
+    scopes:
+      - value: "read:geocode"
+        description: "read geocode"
+      - value: "read:reverse_geocode"
+        description: "read reverse_geocode"
+      - value: "read:directions"
+        description: "read directions"
+    
