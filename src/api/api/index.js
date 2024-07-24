@@ -65,7 +65,7 @@ app.get("/", (req, res) => {
 
 app.get("/api", (req, res) => {
   if (req.user) {
-    logger.debug('Current user: ' + req.user.sub + ' (scope=' + (req.user.scope || 'N/A') + ')');
+    console.log('Current user: ' + req.user.sub + ' (scope=' + (req.user.scope || 'N/A') + ')');
   }
 });
 
@@ -94,5 +94,5 @@ app.use((err, req, res, next) => {
 });
 
 createServer(app).listen(PORT, () => {
-  logger.info(`Worldmappers API (Resource Server) listening on: ${APP_URL}`);
+  console.log(`Worldmappers API (Resource Server) listening on: ${APP_URL}`);
 });
