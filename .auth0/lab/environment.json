@@ -9,7 +9,7 @@
       "name": "Lab: M2M App",
       "directory": "src/m2m-app",
       "env": {
-        "API_URL": "Lab: API",
+        "API_URL": "Lab: Worldmapper API",
         "ISSUER_BASE_URL": "$tenant_base_url",
         "CLIENT_ID": "$client_id",
         "CLIENT_SECRET": "$client_secret",
@@ -20,7 +20,7 @@
   ],
   "resourceServers": [
     {
-      "name": "Lab: World Mappers API",
+      "name": "Lab: Worldmapper API",
       "directory": "src/api",
       "env": {
         "ISSUER_BASE_URL": "$tenant_base_url",
