@@ -57,11 +57,12 @@ getAccessToken(function(err, accessToken) {
   console.log('Getting directions to the Auth0 Office from the World Mappers API');
   console.log(accessToken);
 
-  // Call the Worldmappers API with the access token.
+  // Call the Worldmapper API with the access token.
   var options = {
-    url: `${API_URL}/api/directions`,
+    url: `${API_URL}/api/location/directions`,
     headers: {
-      Authorization: 'Bearer ' + accessToken
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${accessToken}`
     }
   }
   request.get(options, function(err, res, body) {

@@ -34,17 +34,17 @@ const geocode = [
 ];
 
 const reverse_geocode = [
-  { step: 1, action: 'Turn left' },
-  { step: 2, action: 'Turn right' },
-  { step: 3, action: 'Finish' }
-];
-
-const directions = [
   {
     street: '10900 NE 8th Street',
     city: 'Bellevue',
     state: 'Washington'
   }
+];
+
+const directions = [
+  { step: 1, action: 'Turn left' },
+  { step: 2, action: 'Turn right' },
+  { step: 3, action: 'Finish' }
 ];
 
 /****************************
@@ -91,5 +91,5 @@ app.use((err, req, res, next) => {
 });
 
 createServer(app).listen(PORT, () => {
-  console.log(`Worldmappers API (Resource Server) listening on: ${APP_URL}`);
+  console.log(`Worldmapper API (Resource Server) listening on: ${APP_URL}`);
 });

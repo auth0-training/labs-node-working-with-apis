@@ -1,7 +1,7 @@
 {
-  "name": "worldmappers-api-express",
+  "name": "worldmapper-api-express",
   "version": "1.0.0",
-  "description": "Auth0 Labs Worldmappers API",
+  "description": "Auth0 Labs Worldmapper API",
   "license": "MIT",
   "author": "Auth0",
   "main": "api/index.js",
@@ -18,7 +18,7 @@
   },
   "config": {
     "expense_api_port": 35500,
-    "expense_api_audience": "https://worldmappers-api"
+    "expense_api_audience": "https://worldmapper-api"
   },
   "keywords": [
     "auth0",
