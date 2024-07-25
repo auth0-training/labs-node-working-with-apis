@@ -1,12 +1,12 @@
 {
   "$schema": "https://aka.ms/codetour-schema",
-  "title": "2: Configure the Web Application to Pull Expenses from the API",
+  "title": "2: Register the M2M app in your Auth0 Tenant",
   "steps": [
     {
       "file": "README.md",
       "line": 1,
       "title": "What You'll Learn",
-      "description": "## You just:\n1. Registered the Expenses API in your Tenant.\n\n## Now you will:\n1. Deploy a test API into the lab environment.\n1. Modify the Web application to call the API.\n1. Obtain a test Access Token.\n1. Call the test API using the Access Token."
+      "description": "## Register the M2M app in your Auth0 Tenant\n\n1. Log into your [Auth0 management dashboard](https://manage.auth0.com/) if you aren't already.\n\n1. Make sure you're working in the same '_dev-_' tenant that you connected to the Auth0 Labs Extension.\n\n1. Select the **Applications** > **Applications** from the right navigation menu.\n\n1. Select the **Create Application** button.\n\n1. Enter **Lab: M2M App** into the **Name** field.\n\n1. Select **Machine To Machine** as the application type.\n\n1. From the **Select an API** dropdown, select the **Lab: Worldmapper API**.\n\n1. Finally, select **Continue**."
     },
     {
       "file": "README.md",

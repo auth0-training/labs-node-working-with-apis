@@ -31,6 +31,6 @@
   "dependencies": {
     "concurrently": "^7.3.0",
     "eslint": "^8.20.0",
-    "prettier": "^2.7.1"
+    "prettier": "^2.8.8"
   }
 }

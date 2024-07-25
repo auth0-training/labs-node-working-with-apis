@@ -1,0 +1,61 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "1: Introduction",
+  "steps": [
+    {
+      "file": "",
+      "line": 1,
+      "title": "Scenario",
+      "description": "## Scenario\n\nIn this scenario, we will show how two backend services from the same company can interact securely with the use of the Client Credentials grant. \n\nThese two services are:\n\n- **The Worldmapper API**: (`/src/api`) An API used to find coordinates, addresses, and directions to a particular location.\n- **The Gift Deliveries Service**: (`/src/m2m-app`) A backend service that uses the Worldmapper API to get directions from one point to a destination in order to deliver a gift.\n\nThe Gift Deliveries client is a non-interactive **confidential** client, which makes it appropriate to use the Client Credentials grant."
+    },
+    {
+      "file": "src/api/api/index.js",
+      "description": "## Worldmapper API: Endpoints\n\nNotice that we've opened `/src/api/api/index.js`. The highlighted code above defines three protected endpoints. Below is a summary of what each endpoint does and the scope that it requires:\n\n- `/api/location/geocode` \n    - Returns the latitude and longitude of a location\n    - Requires the scope `read:geocode`\n- `/api/location/reverse-geocode`\n    - Returns the address of a location\n    - Requires the scope `read:reversegeocode`\n- `/api/location/directions` \n    - Returns directions from the company's office to the location\n    - Requires the scope `read:directions`\n\nTo access resources exposed by these endpoints, our Gift Deliveries Service must first request a machine to machine (M2M) access token with these specific scopes.",
+      "selection": {
+        "start": {
+          "line": 73,
+          "character": 1
+        },
+        "end": {
+          "line": 83,
+          "character": 67
+        }
+      }
+    },
+    {
+      "file": "src/m2m-app/index.js",
+      "selection": {
+        "start": {
+          "line": 14,
+          "character": 1
+        },
+        "end": {
+          "line": 45,
+          "character": 53
+        }
+      },
+      "description": "## Gift Delivery service: Requesting an access token\n\nNotice that we've opened `src/m2m-app/index.js` above. In the highlighted portion of the code, we define `getAccessToken()`, which requests an M2M access token using the client credentials grant.\n\nThe client (Gift Delivery service) makes this request to the Auth0 Authorization server, sending its client ID, its client secret, the grant type, and the audience. The audience is the API's identifier.\n"
+    },
+    {
+      "file": "src/m2m-app/index.js",
+      "description": "## Calling the Worldmapper API from the Gift Delivery service\n\nIf the Auth0 Authorization server determines the request is valid, it returns a response with the requested access token. The client (Gift Delivery service) can now use this access token to request the protected resource from the Worldmapper API. In the code selection above, you see that the service calls the `/api/location/directions` endpoint.\n",
+      "selection": {
+        "start": {
+          "line": 60,
+          "character": 1
+        },
+        "end": {
+          "line": 67,
+          "character": 67
+        }
+      }
+    },
+    {
+      "file": "",
+      "line": 1,
+      "title": "Create the Expenses API in Your Tenant",
+      "description": "## Summary\n\nTo recap, we will be setting up two backend services, an API and an M2M application (client) that will interact through the Client Credentials grant:\n\n1. The client will make a request to the Auth0 Authorization server sending the client ID, the client secret, grant type, and audience.\n2. The Auth0 Authorization server will validate the request, and, if successful, it will send a response with an access token back to the client.\n3. The client will then use the access token to request a protected resource from the API (resource service).\n\nIn this scenario, the resource server is our Worldmapper API and the client is our Gift Delivery service."
+    }
+  ],
+  "nextTour": "2: Register the M2M app in your Auth0 Tenant"
+}
