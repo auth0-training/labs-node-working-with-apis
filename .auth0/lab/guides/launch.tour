@@ -1,0 +1,63 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "3: Launch the API and M2M app locally",
+  "steps": [
+    {
+      "title": "What you'll do",
+      "description": "## What you'll do\n\nIn this section you will:\n\n1. Set the local environment variables for the API and M2M application.\n1. Run the API and M2M application locally.\n1. Verify that the M2M application is able to successfully request an access token from the Auth0 Authorization Server.\n1. Verify that the M2M application is able to successfully access resources from the API using this access token.\n1. Examine the contents of the access token."
+    },
+    {
+      "file": "",
+      "line": 1,
+      "title": "Set the local environment variables",
+      "description": "## Set the local environment variables\n\n> Here we'll leverage the Auth0 Labs Extension (which uses the Auth0 Deploy CLI tool) to automate the process of pulling down the needed configuration values into  `.env` files for the API and M2M application. If you're unfamiliar with where to find these values, we will also walk you through where you can find them in the Auth0 Management Dashboard.\n\n1. Click [**here**](command:auth0.lab.configure) to verify that you've registered your API and M2M application in your Auth0 tenant correctly and to pull down the needed configuration values locally (creates `.env` files in `/src/api` and `/src/m2m-app`)."
+    },
+    {
+      "file": "src/api/.env",
+      "description": "## Examine the `.env` for the API\n\nNotice that the `.env` file generated under `/src/api/` has been opened here. The `ISSUER_BASE_URL` and the `AUDIENCE` match the values from your tenant, while we specified the `PORT` for you.\n\nThe `ISSUER_BASE_URL` is simply the URL of your Auth0 tenant.\n\nThe `AUDIENCE` is the same value you defined as your API's identifier, which you can find in the Auth0 Management Dashboard by going to **Applications** > **API** > **Lab: Worldmapper API** > **Settings**.",
+      "selection": {
+        "start": {
+          "line": 1,
+          "character": 1
+        },
+        "end": {
+          "line": 4,
+          "character": 206
+        }
+      }
+    },
+    {
+      "file": "src/m2m-app/.env",
+      "description": "## Examine the `.env` for the M2M app\n\nNotice that the `.env` file generated under `/src/m2m/` has been opened here. We specified the `API_URL`, `SESSION_SECRET`, and `PORT` for you, and the rest of the values come from your Auth0 tenant.\n\nThe `ISSUER_BASE_URL` is simply the URL of your Auth0 tenant.\n\nYou can find the `CLIENT_ID` and the `CLIENT_SECRET` in the Auth0 Management Dashboard by going to **Applications** > **Application** > **Lab: M2M App** > **Settings**.",
+      "selection": {
+        "start": {
+          "line": 1,
+          "character": 1
+        },
+        "end": {
+          "line": 6,
+          "character": 20
+        }
+      },
+      "title": "Examine the .env for the M2M app"
+    },
+    {
+      "file": "",
+      "title": "Launch the API and M2M app locally",
+      "description": "## Launch the API and M2M app locally\n\n1. Click [here](command:workbench.action.files.saveFiles) to save all files.\n1. Since we're working on GitHub Codespaces, we'll need to ensure that the ports for our API (35550) and M2M app (39550) are set to public.\n    - At the bottom of this screen, select the **PORTS** tab.\n    - In the **Port** column, right-click on port **35550** and select **Port Visibility** > **Public**.\n    - Repeat these steps for port **39550**.\n    - If there are any other ports in the list, you can ignore them.\n1. Click [here](command:workbench.action.debug.start) to build and launch the API and M2M app.\n1. Now switch to the **DEBUG CONSOLE** tab."
+    },
+    {
+      "title": "Verify a successful client credentials grant",
+      "description": "## Verify a successful client credentials grant\n\n> Next, we'll verify that our M2M app's request for an access token was successfully granted by the Auth0 Authorization server and that the access token was successfully used in a rquest to the Worldmapper API.\n\n1. At the bottom of this window, switch to the **DEBUG CONSOLE** tab.\n1. From the dropdown in this section, select **Launch M2M App** to view the debug information logged from the Gift Delivery service.\n\nYou should see something like:\n\n```\nStarting the Gift Deliveries worker at {APP_URL}\nFetching access token from {ISSUER_BASE_URL}/oauth/token\nGetting directions to the Auth0 Office from the Worldmapper API\n{a long encoded string, which is your access token}\nDirections: [{\"step\":1,\"action\":\"Turn left\"},{\"step\":2,\"action\":\"Turn right\"},{\"step\":3,\"action\":\"Finish\"}]\n```\n\n\n### The last line is the response from a request to the `/api/location/directions` endpoint of the Worldmapper API, and indicates that the process was a success."
+    },
+    {
+      "title": "Examine the access token",
+      "description": "## Examine the access token\n\n1. Copy the encoded access token from the **DEBUG CONSOLE**.\n1. Visit [jwt.io](https://jwt.io) in a browser tab.\n1. Paste the contents into the **Encoded** section.\n1. Examine the decoded payload contents, which should look similar to:\n\n```\n{\n  \"iss\": \"https://YOUR-TENANT.us.auth0.com/\",\n  \"sub\": \"367goj5iTwGp2W3EibRIESg96CLBw0WN@clients\",\n  \"aud\": \"https://worldmapper-api\",\n  \"iat\": 1721969423,\n  \"exp\": 1722055823,\n  \"scope\": \"read:geocode read:reverse_geocode read:directions\",\n  \"gty\": \"client-credentials\",\n  \"azp\": \"367goj5iTwGp2W3EibRIESg96CLBw0WN\"\n}\n```\n\nLet's break down the OAuth claims in this access token:\n\n* The `iss` (issuer) is your Auth0 tenant URL.\n* The `sub` (subscriber) is the client ID of your M2M app registered with Auth0.\n* The `aud` (audience) is the identifier of your API registered with Auth0. \n    > **If your app is not authorized to access this audience, the Auth0 Authorization server would deny the application's access token request.**\n* The `scope` (scopes) include all the permissions your authorized the M2M app to request. \n    > **If this claim is missing or lacks the required scopes/permissions, the API would deny the request for the protected resource.**\n* The `gty` (grant type) is the client credentials grant.\n* The `azp` (authorizing party) is also the client ID of your M2M app registered with Auth0.\n\n\n"
+    },
+    {
+      "title": "Finished!",
+      "description": "## Finished!\n\nCongratulations! You've finished this lab on calling an API with an M2M app using the Client Credentials grant. For more training, visit [**okta.com/training**](https://okta.com/training)."
+    }
+  ],
+  "nextTour": "4: Client Secrets and Access Tokens"
+}

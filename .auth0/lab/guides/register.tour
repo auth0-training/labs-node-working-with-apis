@@ -1,0 +1,35 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "2: Register the API and M2M app with your Auth0 tenant",
+  "steps": [
+    {
+      "title": "What you'll do",
+      "description": "## What you'll do\n\nIn this section, you'll: \n1. Register the Worldmapper API in your Auth0 tenant.\n2. Define permissions (scopes) the API uses.\n3. Register the Gift Delivery service as an M2M application in your Auth0 tenant."
+    },
+    {
+      "title": "Register the Worldmapper API in your Auth0 tenant",
+      "description": "## Register the Worldmapper API with your Auth0 tenant\n\n> First you'll register the Worldmapper API in your Auth0 tenant.\n\n1. Log into the [Auth0 Management Dashboard](https://manage.auth0.com/) if you aren't already.\n\n1. Make sure you're working in the same '_dev-_' tenant that you connected to the Auth0 Labs Extension.\n\n1. Select the **Applications** > **APIs** from the right navigation menu.\n\n1. Select the **Create API** button.\n\n1. Enter **Lab: Worldmapper API** into the **Name** field.\n\n1. Enter `https://worldmapper-api` into the **Identifier** field.\n\n1. Keep all other options as the default selections.\n\n1. Finally, select **Create** button."
+    },
+    {
+      "title": "Define the Worldmapper API scopes",
+      "description": "## Define the Worldmapper API scopes\n\n> Next you'll define the permissions (scopes) used by the Worldmapper API.\n\n1. Select the **Permissions** tab.\n\n1. In the **Permission** field, enter `read:geocode`.\n\n1. In the **Description** field, enter `read geocode`.\n\n1. Select the **Add** button.\n\nRepeat the steps above to add two more scopes:\n\n- **Permission**: `read:reverse_geocode`, **Description**: enter `read reverse_geocode`. \n- **Permission**: `read:directions`, **Description**: enter `read directions`. "
+    },
+    {
+      "file": "",
+      "line": 1,
+      "title": "Register the M2M app in your Auth0 tenant",
+      "description": "## Register the M2M app in your Auth0 tenant\n\n\n1. From the Auth0 Management Dashboard, select the **Applications** > **Applications** from the right navigation menu.\n\n1. Select the **Create Application** button.\n\n1. Enter **Lab: M2M App** into the **Name** field.\n\n1. Select **Machine To Machine** as the application type.\n\n1. From the **Select an API** dropdown, select the **Lab: Worldmapper API**.\n\n1. Select each of the scopes in the **Permissions** section: \n    - `read:geocode` \n    - `read:reverse_geocode`\n    - `read:directions`\n\n1. Finally, select **Continue**.\n\n> Your M2M application is now authorized to request access tokens (with all three defined scopes) for the Worldmapper API through the Client Credentials grant.",
+      "selection": {
+        "start": {
+          "line": 21,
+          "character": 58
+        },
+        "end": {
+          "line": 21,
+          "character": 110
+        }
+      }
+    }
+  ],
+  "nextTour": "3: Launch the API and M2M app locally"
+}
