@@ -6,7 +6,17 @@
       "file": "",
       "line": 1,
       "title": "Create a Vercel KV store",
-      "description": "## Create a Vercel KV store\n\n1. Log in to [Vercel](https://vercel.com/).\n1. Select **Add New** > **Store**.\n1. Select **Create Database**.\n1. Select the **Create** button next to KV.\n1. Name this KV store **test**."
+      "description": "## Create a Vercel KV database\n\n1. Log in to [Vercel](https://vercel.com/), and visit the [Vercel Dashboard](https://vercel.com/dashboard).\n1. Select **Add New** > **Store**.\n1. Select **Create Database**.\n1. Select the **Create** button next to KV.\n1. Name this KV store **test-fga**.\n1. Keep the rest of the options as default.\n1. Select the **Create** button.",
+      "selection": {
+        "start": {
+          "line": 1,
+          "character": 23
+        },
+        "end": {
+          "line": 1,
+          "character": 28
+        }
+      }
     },
     {
       "file": ".env",
