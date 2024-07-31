@@ -4,7 +4,7 @@
   "steps": [
     {
       "file": "",
-      "description": "## Check that you have the required accounts\nBefore getting started, let's verify you have everything you need:\n\n1. #### An [Okta FGA account](https://dev.fga.com) to add authorization to resources exposed by the sample application.\n1. #### An [Auth0 account](https://auth0.com/signup) as our identity provider.\n1. #### A [Vercel account](https://vercel.com/signup) as a key-value store for the resources served by the sample API.\n\nFree versions of these accounts are adequate for this lab.",
+      "description": "## Check that you have the required accounts\nBefore getting started, let's verify you have everything you need:\n\n1. #### An [Okta FGA account](https://fga.dev/) to add authorization to resources exposed by the sample application.\n1. #### An [Auth0 account](https://auth0.com/signup) as our identity provider.\n1. #### A [Vercel account](https://vercel.com/signup) as a key-value store for the resources served by the sample API.\n\nFree versions of these accounts are adequate for this lab.",
       "line": 1,
       "title": "Check that you have the required accounts"
     },
