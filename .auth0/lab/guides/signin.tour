@@ -4,13 +4,9 @@
   "steps": [
     {
       "file": "",
-      "description": "## Check that you have the required accounts\nBefore getting started, let's verify you have everything you need:\n\n1. #### An [Okta FGA account](https://dev.fga.com) to add authorization to resources exposed by the sample application.\n1. #### An [Auth0 account](https://auth0.com/signup) as our identity provider.\n1. #### A [Vercel account](https://vercel.com/signup) as a key-value store for the resources served by the sample API.\n\nFree versions of these accounts are adequate for this lab.",
+      "description": "## Check that you have the required accounts\nBefore getting started, let's verify you have everything you need:\n\n1. #### An [Okta FGA account](https://fga.dev/) to add authorization to resources exposed by the sample application.\n1. #### An [Auth0 account](https://auth0.com/signup) as our identity provider.\n1. #### A [Vercel account](https://vercel.com/signup) as a key-value store for the resources served by the sample API.\n\nFree versions of these accounts are adequate for this lab.\n\n-------\n\n> Note: This hands-on lab is part of a free, on-demand learning path: **Build Scalable Authorization Models with Okta Fine Grained Authorization**. This learning path has three self-paced microlearning courses, which are recommended before you attempt this lab. To enroll, visit the [training page](https://www.okta.com/training/build-scalable-authorization-models-with-okta-fga) and click the **Register** button.\n\n![img](https://cdn.auth0.com/website/auth0-training/okta-fga/fga-training.png/fga-training.png)",
       "line": 1,
       "title": "Check that you have the required accounts"
-    },
-    {
-      "title": "Create the .env file",
-      "description": "## Create the `.env` file\n\nClick [here](command:codetour.sendTextToTerminal?[\"cp .env-sample .env\"]) to create the .env file. We'll use this file to set environment variables that will be referenced by our sample application."
     }
   ],
   "nextTour": "1: Register the sample application in your Auth0 tenant"

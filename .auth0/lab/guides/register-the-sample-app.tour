@@ -25,6 +25,10 @@
       }
     },
     {
+      "title": "Create the .env file",
+      "description": "## Create the `.env` file\n\nClick [here](command:codetour.sendTextToTerminal?[\"cp .env-sample .env\"]) to create the .env file. We'll use this file to set environment variables that will be referenced by our sample application."
+    },
+    {
       "file": ".env",
       "description": "## Define `AUTH0_BASE_URL`\n1. Click [here](command:codetour.sendTextToTerminal?[\"echo https://$CODESPACE_NAME-3000.app.github.dev\"]) and copy the URL value that prints out.\n2. Paste this value on the line highlighted above to set the `AUTH0_BASE_URL` variable.",
       "line": 9,
