@@ -31,7 +31,7 @@
     },
     {
       "title": "Add relationship tuples",
-      "description": "## Add relationship tuples\n\nIn order to test our model, we'll need to first manually create some relationship tuples.\n\n1. In the Okta FGA Dashboard, go to **Tuple Management**.\n1. Select the **Add Tuple** button.\n1. In the **USER** field, enter **user:auth0user**.\n1. In the **OBJECT** section:\n    - Select **folder** from the dropdown.\n    - Enter **untitledfolder** in the **Enter ID** field.\n1. In the **RELATION** section, select **owner** .\n1. Select the **Add Tuple** button.\n\n> You've just added a tuple that indicates that the user with the ID **auth0user** is the **owner** of a folder with the ID **untitledfolder**. Note that we've used friendly names for the IDs of these objects for testing purposes. In a real scenario, these would be Universally Unique Identifiers (UUIDs) that refer to real users (e.g., an Auth0 user ID) and resources (e.g. IDs in a Vercel KV store)).\n\n### Next, you'll add two more tuples using the same process as above:\n\n- Second tuple (The folder untitledfolder is the parent of the file untitledoc):\n    - **USER**: folder:untitledfolder\n    - **OBJECT**: Select file, and enter untitleddoc as the ID.\n    - **RELATION**: parent\n- Third tuple (The user auth0user is the owner of the file untitledoc):\n    - **USER**: user:auth0user\n    - **OBJECT**: Select file, and enter untitleddoc as the ID.\n    - **RELATION**: owner\n\nOnce you're finished, you should have three tuples like so:\n\n![img](https://cdn.auth0.com/website/auth0-training/oktafga/fga-tuples.png)\n"
+      "description": "## Add relationship tuples\n\nIn order to test our model, we'll need to first manually create some relationship tuples.\n\n1. In the Okta FGA Dashboard, go to **Tuple Management**.\n1. Select the **Add Tuple** button.\n1. In the **USER** field, enter **user:auth0user**.\n1. In the **OBJECT** section:\n    - Select **folder** from the dropdown.\n    - Enter **untitledfolder** in the **Enter ID** field.\n1. In the **RELATION** section, select **owner** .\n1. Select the **Add Tuple** button.\n\n> You've just added a tuple that indicates that the user with the ID **auth0user** is the **owner** of a folder with the ID **untitledfolder**. Note that we've used friendly names for the IDs of these objects for testing purposes. In a real scenario, these would be Universally Unique Identifiers (UUIDs) that refer to real users (e.g., an Auth0 user ID) and resources (e.g. IDs in a Vercel KV store). It is important that you do not expose Personal Identifying Information (PII) and instead use UUIDs.\n\n### Next, you'll add two more tuples using the same process as above:\n\n- Second tuple (The folder untitledfolder is the parent of the file untitleddoc):\n    - **USER**: folder:untitleddfolder\n    - **OBJECT**: Select file, and enter untitleddoc as the ID.\n    - **RELATION**: parent\n- Third tuple (The user auth0user is the owner of the file untitleddoc):\n    - **USER**: user:auth0user\n    - **OBJECT**: Select file, and enter untitleddoc as the ID.\n    - **RELATION**: owner\n\nOnce you're finished, you should have three tuples like so:\n\n![img](https://cdn.auth0.com/website/auth0-training/oktafga/fga-tuples.png)\n"
     },
     {
       "title": "Write an assertion in Developer Mode",
@@ -78,6 +78,36 @@
     {
       "title": "Test all assertions",
       "description": "## Test all assertions\n\nNow that we have written more assertions, let's test them out!\n\n1. Select the **Run All** button in the **Assertions** section of the Developer Mode page.\n1. You should see **4 pass, 0 fail**. If any of your assertions failed, check that the IDs in your tuples match the ones in your assertions. In practice, you may also need to edit your model if it doesn't correctly capture the relationships you want to express.\n\n> You've just tested some inherent relationships expressed by your model! If the user with the **ID** auth0user is the **owner** of a file with the ID **untitleddoc**, it must be true that that user can view, write, and share that file."
+    },
+    {
+      "file": ".env",
+      "description": "# Define FGA_STORE_ID\n\n1. From the FGA Dashboard, select **Settings**.\n2. Copy the value in the **Store ID** field.\n3. Paste this value to the line selected above to define the **FGA_STORE_ID** variable.",
+      "line": 18
+    },
+    {
+      "file": ".env",
+      "description": "# Define FGA_AUTHORIZATION_MODEL_ID\n1. From the FGA Dashboard settings page, copy the value in the **Model ID (latest)** field.\n2. Paste this value to the line selected above to define the **FGA_AUTHORIZATION_MODEL_ID** variable.",
+      "line": 19
+    },
+    {
+      "file": ".env",
+      "description": "# Define FGA_CLIENT_ID\n1. From the FGA Dashboard settings page, select the **Create client** button.\n2. Enter the **Client Name** as **Okta Drive**.\n3. Check all the **Client Permissions** checkboxes.\n4. Select the **Create** button.\n5. Copy the **Client ID** that becomes visible.\n6. Paste the **Client ID** on to the line selected above to define the **FGA_CLIENT_ID** variable.",
+      "line": 22,
+      "selection": {
+        "start": {
+          "line": 6,
+          "character": 1
+        },
+        "end": {
+          "line": 7,
+          "character": 99
+        }
+      }
+    },
+    {
+      "file": ".env",
+      "description": "# Define FGA_CLIENT_SECRET\n1. Copy the **Client Secret** that becomes visible.\n2. Paste the **Client Secret** on to the line selected above to define the **FGA_CLIENT_SECRET** variable.\n3. Back on the FGA Dashboard, select the **Continue** button to dismiss the client information.\n\n> Note: In real practice, you would copy the client secret to a safe place in your secrets vault or key management service before continuing.",
+      "line": 23
     }
   ],
   "nextTour": "3: Create a Vercel KV store"
