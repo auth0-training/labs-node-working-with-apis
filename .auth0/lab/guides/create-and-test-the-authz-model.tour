@@ -91,7 +91,7 @@
     },
     {
       "file": ".env",
-      "description": "# Define FGA_CLIENT_ID\n1. From the FGA Dashboard settings page, select the **Create client** button.\n2. Enter the **Client Name** as **Okta Drive**.\n3. Check all the **Client Permissions** checkboxes.\n4. Select the **Create** button.\n5. Copy the **Client ID** that becomes visible.\n6. Paste the **Client ID** on to the line selected above to define the **FGA_CLIENT_ID** variable.",
+      "description": "# Define FGA_CLIENT_ID\n1. From the FGA Dashboard settings page, select the **Create Client** button.\n2. Enter the **Client Name** as **Okta Drive**.\n3. Check all the **Client Permissions** checkboxes.\n4. Select the **Create** button.\n5. Copy the **Client ID** that becomes visible. **Keep this window open as you will need the Client Secret in a moment**.\n6. Paste the **Client ID** on to the line selected above to define the **FGA_CLIENT_ID** variable.",
       "line": 22,
       "selection": {
         "start": {
