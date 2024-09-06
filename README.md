@@ -1,4 +1,4 @@
-
+![img](https://cdn.auth0.com/website/auth0-training/auth0-labs-ext/oktane24.png)
 # Lab: FGA FTW: Implement Fine Grained Authorization for Next-Level Security
 
 This [Okta Training](https://okta.com/training) hands-on lab walks you adding authorization to an API using Okta FGA. You’ll add authorization to an API that we provide you with and register the associated client web application with Auth0 as an identity provider.
