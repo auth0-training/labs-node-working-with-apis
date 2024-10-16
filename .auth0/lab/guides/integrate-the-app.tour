@@ -3,10 +3,6 @@
   "title": "4: Integrate the application with Okta FGA",
   "steps": [
     {
-      "title": "Install dependencies",
-      "description": "## Install dependencies\n1. Click [here](command:codetour.sendTextToTerminal?[\"npm install\"]) to install the application dependencies.\n\n> Note: This runs the command `npm install`"
-    },
-    {
       "file": "src/app/authorization.ts",
       "description": "## Install the OpenFGA SDK\n\nSince we'll be integrating this application with Okta FGA, we'll need to install the OpenFGA SDK (referenced here in `authorization.ts`).\n1. Click [here](command:codetour.sendTextToTerminal?[\"npm install @openfga/sdk\"]) to install the OpenFGA SDK\n\n> Note: this runs the command `npm install @openfga/sdk`.\n",
       "line": 2
