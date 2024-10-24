@@ -27,6 +27,7 @@ A user can log in, add files (pictures only), and create folders. Uploaded files
 ### Notes:
 - **If you'd like to save your work to your own fork:** You can commit and push your changes to a fork of this repo. (See: [Using Source Control in Your Codespace](https://docs.github.com/en/codespaces/developing-in-codespaces/using-source-control-in-your-codespace)).
 - **Close the Codespace when you're finished with the lab:** Codespaces come with a set amount of free usage. To avoid using all of your free use allocation, be sure to return to the forked repo, select the "Code" dropdown, select the dots next to your open Codespace, and select "Delete." This will not delete your forked repository. You can keep that forever, and open a new Codespace whenever you like.
+- Questions? Check out our [Lab FAQs](https://auth0-training.github.io/)!
 
 ---
 
