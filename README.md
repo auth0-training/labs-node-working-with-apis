@@ -1,5 +1,4 @@
-![img](https://cdn.auth0.com/website/auth0-training/auth0-labs-ext/oktane24.png)
-# Lab: FGA FTW: Implement Fine Grained Authorization for Next-Level Security
+# Lab: Add Authorization to Your API with Okta FGA and Auth0
 
 Move authorization outside of your application code to a single solution! Design fine-grained models that are centralized, flexible, fast, scalable, and testable.
 
