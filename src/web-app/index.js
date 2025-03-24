@@ -17,6 +17,7 @@ const logger = require("morgan");
 const path = require("path");
 const { createServer } = require("http");
 const { auth, requiresAuth } = require("express-openid-connect");
+const axios = require("axios").default;
 
 const app = express();
 
@@ -39,6 +40,10 @@ app.use(
 
 app.use(
   auth({
+authorizationParams: {
+    response_type: "code",
+    audience: "https://expenses-api",
+    },
     secret: SESSION_SECRET,
     authRequired: false,
     auth0Logout: true,
@@ -46,27 +51,20 @@ app.use(
   })
 );
 
-const expenses = [
-  {
-    date: new Date(),
-    description: "Pizza for a Coding Dojo session.",
-    value: 102,
-  },
-  {
-    date: new Date(),
-    description: "Coffee for a Coding Dojo session.",
-    value: 42,
-  },
-];
+ // This comment will replace the hard-coded expenses data.
 
-app.get("/", async (req, res) => {
-  res.render("home", {
-    user: req.oidc && req.oidc.user,
-    total: expenses.reduce((accum, expense) => accum + expense.value, 0),
-    count: expenses.length,
-  });
+app.get("/", async (req, res, next) => {
+    try {
+       const summary = await axios.get(`${API_URL}/total`);
+       res.render("home", {
+        user: req.oidc && req.oidc.user,
+        total: summary.data.total,
+        count: summary.data.count,
+       });
+    } catch (err) {
+       next(err);
+    }
 });
-
 app.get("/user", requiresAuth(), async (req, res) => {
   res.render("user", {
     user: req.oidc && req.oidc.user,
@@ -77,10 +75,23 @@ app.get("/user", requiresAuth(), async (req, res) => {
 });
 
 app.get("/expenses", requiresAuth(), async (req, res, next) => {
-  res.render("expenses", {
-    user: req.oidc && req.oidc.user,
-    expenses,
-  });
+    try {
+       // 👇 get the token from the request 👇
+       const { token_type, access_token } = req.oidc.accessToken;
+       // 👇 then send it as an authorization header 👇
+       const expenses = await axios.get(`${API_URL}/reports`, {
+         headers: {
+           Authorization: `${token_type} ${access_token}`,
+         },
+       });
+       // 👆 end of changes 👆
+       res.render("expenses", {
+        user: req.oidc && req.oidc.user,
+        expenses: expenses.data,
+    });
+    } catch (err) {
+       next(err);
+    }
 });
 
 // catch 404 and forward to error handler
