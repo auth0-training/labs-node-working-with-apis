@@ -1,5 +1,5 @@
 
-# Lab: Working with APIs
+# Lab: Protect Your API with Auth0
 
 In this [Okta Learning](https://learning.okta.com/), learners will put their API knowledge into practice by creating an API in their Auth0 tenant, deploying a test API into the lab environment, obtaining a test Access Token, and calling the test API using the token.
 
