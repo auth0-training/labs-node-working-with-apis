@@ -1,7 +1,15 @@
 
 # Lab: Protect Your API with Auth0
 
-In this [Okta Learning](https://learning.okta.com/), learners will put their API knowledge into practice by creating an API in their Auth0 tenant, deploying a test API into the lab environment, obtaining a test Access Token, and calling the test API using the token.
+With Auth0, you can control access to your API endpoints. Secure requests to sensitive API endpoints with the OAuth 2.0 standard by requiring validated Access Tokens.
+
+In this [Okta Learning](https://learning.okta.com/) lab, you will:
+
+- Register an API with Auth0
+- Use the Auth0 express-oauth2-bearer middleware to require authorization on certain endpoints in your API
+- Use the Auth0 express-openid-connect middleware to configure your app to request the needed scopes from the Auth0 Authorization Server
+- Enable Role-based Access so that only user's with certain roles may request required scopes
+- Add custom claims to an Access Token with an Auth0 post-login Action
 
 ----
 
