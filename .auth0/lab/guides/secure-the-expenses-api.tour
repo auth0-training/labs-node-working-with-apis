@@ -4,7 +4,7 @@
   "steps": [
     {
       "file": "src/api/api/index.js",
-      "description": "## Add the Express OAuth 2 Bearer Node Module\nThe first step in securing our API, is to require the [Express middleware](https://github.com/auth0/express-oauth2-bearer) we'll use to do so. \n\nNote that we've already added the middleware to the web app. \n\nNow, we're adding it to the index.js file for our Expenses API. \n\nLet's add the necessary Express middleware here with the following code:\n\n``` jsx\nconst { auth, requiredScopes } = require(\"express-oauth2-jwt-bearer\");\n```\n, then proceed to the next step.\n",
+      "description": "## Add the Express OAuth 2 Bearer Node Module\nThe first step in securing our API, is to require the [Express middleware](https://github.com/auth0/node-oauth2-jwt-bearer/tree/main/packages/express-oauth2-jwt-bearer) we'll use to do so. \n\nNote that we've already added the middleware to the web app. \n\nNow, we're adding it to the index.js file for our Expenses API. \n\nLet's add the necessary Express middleware here with the following code:\n\n``` jsx\nconst { auth, requiredScopes } = require(\"express-oauth2-jwt-bearer\");\n```\n, then proceed to the next step.\n",
       "line": 11,
       "selection": {
         "start": {
