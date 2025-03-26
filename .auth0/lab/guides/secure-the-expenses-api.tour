@@ -19,7 +19,7 @@
     },
     {
       "file": "src/api/api/index.js",
-      "description": "## Configure the API to use the Authentication Middleware\nNow, let's configure the API to use the middleware for all requests. \n\nHere, we'll add the following code:\n\n``` jsx\n// 👆 public routes above 👆\napp.use(auth());\n// 👇 private routes below 👇\n```\n\nThis middleware `auth()` function will require requests to all the routes that come after it to be authorized by the Auth0 Authorization Server. In this case, only authorized requests to `/expenses` route will be successful. But how does this work? The middleware `authO()` function references the audience specified in Web App's `.env` file (in this case, `https://expenses-api`), and only authorizes requests with valid a Access Tokens with the audience `https://expenses-api`. \n",
+      "description": "## Configure the API to use the Authentication Middleware\nNow, let's configure the API to use the middleware for all requests. \n\nHere, we'll add the following code by selecting the **Insert Code** link:\n\n``` jsx\n// 👆 public routes above 👆\napp.use(auth());\n// 👇 private routes below 👇\n```\n\nThis middleware `auth()` function will require requests to all the routes that come after it to be authorized by the Auth0 Authorization Server. In this case, only authorized requests to `/reports` route will be successful. But how does this work? The middleware `authO()` function references the audience specified in Web App's `.env` file (in this case, `https://expenses-api`), and only authorizes requests with valid a Access Tokens with the audience `https://expenses-api`. \n",
       "line": 50,
       "selection": {
         "start": {
@@ -29,6 +29,21 @@
         "end": {
           "line": 50,
           "character": 50
+        }
+      }
+    },
+    {
+      "file": "src/api/api/index.js",
+      "description": "## Require the appropriate scope\n\nRecall that when we registered the API, we created the `read:reports` scope. Let's ensure that the API requires  this scope so that only requests with an valid Access Token with the `read:reports` scope will be authorized. This will be in addition to the Access Token having the correct audience (`https://expenses-api`).\n\nHere, we'll add the following code to the `/reports` route by selecting the **Insert Code** link:\n\n``` jsx\nrequiredScopes('read:reports'), \n```\n\nThe `requiredScopes` middleware function specifies the required scopes to make requests to this endpoint.\n",
+      "line": 52,
+      "selection": {
+        "start": {
+          "line": 52,
+          "character": 21
+        },
+        "end": {
+          "line": 52,
+          "character": 21
         }
       }
     },
