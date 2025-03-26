@@ -6,8 +6,8 @@ With Auth0, you can control access to your API endpoints. Secure requests to sen
 In this [Okta Learning](https://learning.okta.com/) lab, you will:
 
 - Register an API with Auth0
-- Use the Auth0 express-oauth2-bearer middleware to require authorization on certain endpoints in your API
-- Use the Auth0 express-openid-connect middleware to configure your app to request the needed scopes from the Auth0 Authorization Server
+- Use the Auth0 [express-oauth2-bearer](https://github.com/auth0/node-oauth2-jwt-bearer/tree/main/packages/express-oauth2-jwt-bearer) middleware to require authorization on certain endpoints in your API
+- Use the Auth0 [express-openid-connect](https://github.com/auth0/express-openid-connect) middleware to configure your app to request the needed scopes from the Auth0 Authorization Server
 - Enable Role-based Access so that only user's with certain roles may request required scopes
 - Add custom claims to an Access Token with an Auth0 post-login Action
 
