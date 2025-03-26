@@ -1,0 +1,52 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "5: Configure Role-based Access Control",
+  "steps": [
+    {
+      "file": "",
+      "line": 1,
+      "title": "Enable RBAC",
+      "description": "## Enable RBAC\n\nNow let’s enable Role-based Access Control (RBAC) on our API. Role-based access control (RBAC) refers to the idea of assigning permissions to users based on their role within an organization.\n\n1. In the Auth0 Dashboard, go to **Applications** > **API** and select the **Lab: API**.\n\n1. From the **Settings** tab, scroll down to the RBAC Settings section and toggle on the **Enable RBAC** option.\n\n1. Select the **Save** button."
+    },
+    {
+      "title": "Define a role",
+      "description": "## Define a role\n\nNow let's see how to add a new role.\n\n1. From the Auth0 Dashboard, go to **User Management** > **Roles**.\n1. Select the **+ Create Role** button.\n1. Name the new role **Report Auditor** with the Description **People with read-only access to reports**.\n1. Select the **Permissions** tab.\n1. Select the **Add Permissions** button.\n1. From the drop-down, select **Lab: API**.\n1. Select **read:reports**.\n1. Select the **Add Permissions** button.",
+      "selection": {
+        "start": {
+          "line": 7,
+          "character": 64
+        },
+        "end": {
+          "line": 7,
+          "character": 103
+        }
+      }
+    },
+    {
+      "file": "",
+      "line": 1,
+      "title": "Assign a role to a user",
+      "description": "## Assign a role to a user\n\nNow that we've defined a role, let's assign it to a user.\n\n1. From the Report Auditor role page, select the **Users** tab.\n1. Select the **Add Users** button.\n1. Seach for the user you have been using to log in to the Lab: Web App, and select the **Assign** button."
+    },
+    {
+      "title": "Test RBAC",
+      "description": "## Test RBAC\n\nNow that RBAC is enabled, only users assigned to the Reports Auditor role should be able to request the `read:reports` scope. Let's test it!\n\n1. Select [here](command:workbench.action.files.saveFiles) to save all this progress.\n1. Select [here](command:workbench.action.terminal.new) to open your VS Code terminal. (You may already have one open, that's ok.)\n1. Select [here](command:workbench.action.debug.stop) to stop the previous version of the Web App running in debug, and [here](command:workbench.action.debug.stop) to stop the previous version of the API.\n1. Select [here](command:workbench.action.debug.start) to build and redeploy the Web Application and Expenses API to reflect the latest changes we made.\n1. Select [here](command:auth0.lab.openEndpointByName?[\"Lab: Web App, Lab: API\"]) to re-launch the Web Application and the Expenses API in your web browser.\n1. Log out of the Web App (If you're still logged in.).\n1. Log back in as the user you added to the Reports Auditor role.\n1. Select the user's email address displayed on the page to view their profile.\n1. Select the access token icon (second image) and select **Inspect** to view the decoded Access Token. Notice that the access token contains the request scope `read:reports`.\n1. Go back to your web app and select **Expenses**.\n\nCongratulations! You should be able to view the expenses, which are now being securely retrieved by the Web Application from the Expenses API!\n\n1. As a test, log out of the app and log back in as another user that is **NOT** assigned to the Reports Auditor role.\n1. Go to the Expenses section to trigger an HTTP status code 403 (Forbidden). This happens because the Access Token does not contain sufficient scopes since it is missing the `read:reports` scope. You can verify this by inspecting the Access Token as you did above."
+    },
+    {
+      "title": "Bonus: Add a custom claim to the Access Token",
+      "description": "## Bonus: Add a custom claim to the Access Token\n\nIn some cases you'll want to add custom claims to an ID Token or an Access Token. A common use case in the real world is putting a user's assigned roles in an Access Token, which isn't included by default. We can do this by writing a custom Action.\n\n1. From the Dashboard, go to **Actions** > **Triggers**.\n1. Select **post-login**.\n1. Select the **+ Add Action** button and select **Build from scratch**.\n1. Name this Action **Add Roles Scope** and select **Create**.\n1. Examine the code snippet below, which adds a custom claim named `auth0_labs/roles` to the Access Token in the event of an Authorization request. The value of this claim will be set to the value of `event.authorization.roles`, which is an array of strings that represents the roles the authenticated user has been assigned. Note that we use a [namespaced custom claim](https://auth0.com/docs/secure/tokens/json-web-tokens/create-custom-claims), a recommended best practice to avoid name collisions with existing claims.\n\n1. Finally, in the code editor for your custom Action, replace the boilerplate code with the snippet below.\n\n\n### Code Snippet to copy:\n\n```\nexports.onExecutePostLogin = async (event, api) => {\n   const namespace = 'auth0_labs';\n\n  if (event.authorization) {\n    api.accessToken.setCustomClaim(`${namespace}/roles`, event.authorization.roles);\n  }\n};\n```\n\n"
+    },
+    {
+      "title": "Deploy the Action",
+      "description": "## Deploy the Action\n\nNow let's deploy the Action!\n\n1. Select the **Deploy** button.\n1. Select the **Back to triggers** link to go back to the Post Login trigger page.\n1. Under the **Add Actions** section, select the **Custom** tab.\n1. Select the **Add Roles Scope** action and drag and drop it to the visual trigger editor between **Start** and **Complete**.\n1. Select the **Apply** button."
+    },
+    {
+      "title": "Test the Action",
+      "description": "## Test the Action\n\nNow let's test the Action.\n\n1. Select [here](command:workbench.action.files.saveFiles) to save all this progress.\n1. Select [here](command:workbench.action.terminal.new) to open your VS Code terminal. (You may already have one open, that's ok.)\n1. Select [here](command:workbench.action.debug.stop) to stop the previous version of the Web App running in debug, and [here](command:workbench.action.debug.stop) to stop the previous version of the API.\n1. Select [here](command:workbench.action.debug.start) to build and redeploy the Web Application and Expenses API to reflect the latest changes we made.\n1. Select [here](command:auth0.lab.openEndpointByName?[\"Lab: Web App, Lab: API\"]) to re-launch the Web Application and the Expenses API in your web browser.\n1. Log out of the Web App (If you're still logged in.).\n1. Log back in as the user you added to the Reports Auditor role.\n1. Select the user's email address displayed on the page to view their profile.\n1. Select the Access Token icon (second icon) and select **Inspect** to view the decoded Access Token.\n1. Note that the custom scope **auth0_labs/roles** scope was added to the token!"
+    },
+    {
+      "title": "Congratulations",
+      "description": "## Congraultations 🎉\n\nYou're done with this lab! You may safely [stop](https://docs.github.com/en/codespaces/developing-in-a-codespace/stopping-and-starting-a-codespace#stopping-a-codespace) and [delete](https://docs.github.com/en/codespaces/developing-in-a-codespace/deleting-a-codespace) this codespace."
+    }
+  ]
+}
