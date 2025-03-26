@@ -35,14 +35,14 @@
     {
       "file": "src/api/api/index.js",
       "description": "## Require the appropriate scope\n\nRecall that when we registered the API, we created the `read:reports` scope. Let's ensure that the API requires  this scope so that only requests with an valid Access Token with the `read:reports` scope will be authorized. This will be in addition to the Access Token having the correct audience (`https://expenses-api`).\n\nHere, we'll add the following code to the `/reports` route by selecting the **Insert Code** link:\n\n``` jsx\nrequiredScopes('read:reports'), \n```\n\nThe `requiredScopes` middleware function specifies the required scopes to make requests to this endpoint.\n",
-      "line": 52,
+      "line": 54,
       "selection": {
         "start": {
-          "line": 52,
+          "line": 54,
           "character": 21
         },
         "end": {
-          "line": 52,
+          "line": 54,
           "character": 21
         }
       }
